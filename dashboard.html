@@ -1,0 +1,358 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Interno</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "secondary-fixed-dim": "#c4c7c9",
+                    "tertiary-fixed-dim": "#c3c0ff",
+                    "success-emerald": "#10B981",
+                    "success-text": "#065F46",
+                    "surface-container-low": "#eff4ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "outline-variant": "#c5c6cd",
+                    "on-tertiary-container": "#8481ff",
+                    "on-secondary-fixed": "#191c1e",
+                    "muted-border": "#E2E8F0",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-primary-container": "#8590a6",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#545f73",
+                    "surface-bright": "#f8f9ff",
+                    "on-secondary-container": "#626567",
+                    "on-tertiary-fixed": "#0f0069",
+                    "background": "#f8f9ff",
+                    "outline": "#75777d",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary-fixed-variant": "#3323cc",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "inverse-surface": "#213145",
+                    "primary-container": "#1e293b",
+                    "on-primary-fixed": "#111c2d",
+                    "success-bg": "#D1FAE5",
+                    "tertiary-container": "#18008f",
+                    "overlay-dark": "rgba(15, 23, 42, 0.8)",
+                    "primary-fixed-dim": "#bcc7de",
+                    "on-secondary-fixed-variant": "#444749",
+                    "primary-fixed": "#d8e3fb",
+                    "on-surface": "#0b1c30",
+                    "primary": "#091426",
+                    "on-surface-variant": "#45474c",
+                    "secondary-container": "#e0e3e5",
+                    "on-background": "#0b1c30",
+                    "inverse-primary": "#bcc7de",
+                    "surface-container-high": "#dce9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#5c5f61",
+                    "surface": "#f8f9ff",
+                    "tertiary": "#0a0054",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "secondary-fixed": "#e0e3e5",
+                    "tertiary-fixed": "#e2dfff",
+                    "surface-container-highest": "#d3e4fe"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "stack-lg": "24px",
+                    "stack-sm": "8px",
+                    "column-width": "120px",
+                    "gutter": "24px",
+                    "nav-height": "70px",
+                    "stack-md": "16px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "caption": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .circular-progress {
+            background: conic-gradient(#091426 85%, #E2E8F0 0);
+        }
+        .skill-radar {
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #E2E8F0;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-surface-container-lowest border-b border-muted-border">
+  <a href="dashboard.html" class="font-bold text-primary text-xl">Interno</a>
+  <div class="hidden md:flex gap-8 items-center">
+    <a href="resume.html" class="text-sm hover:text-primary transition-colors">Resume Builder</a>
+    <a href="internships.html" class="text-sm hover:text-primary transition-colors">Apply for Internship</a>
+    <a href="track.html" class="text-sm hover:text-primary transition-colors">Track Status</a>
+    <a href="interview.html" class="text-sm hover:text-primary transition-colors">AI Mock Interview</a>
+    <a href="practice.html" class="text-sm hover:text-primary transition-colors">Practice Test</a>
+    <a href="career.html" class="text-sm hover:text-primary transition-colors">AI Career Path</a>
+  </div>
+  <div class="flex gap-4 items-center">
+    <button class="p-2 hover:bg-gray-100 rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+    <div class="w-10 h-10 rounded-full border border-muted-border bg-surface-container overflow-hidden"><img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs052g4m81dX59CRTajaNj9MxD_H87ouwk8AboLUv_pO_kB714BwtpUWZE6Beu4iIU9DB3HxjNzEWBd9kI0JvY-rFAd0Yaav37S5Bk4RjKfi0BWHNu4iy-ZZzfxk-f0xdYMhkNray_M88WE2RqOL7nJzG8qs7h3U_ukxdkflvxBuFFs_eQp4Cm0aHsp2MIFQY-Pfev_wgGbPauqdtBNSkXvbby5cPY3ySoGVYdSIkhJk6IMs4sXbyUU4Q" alt="Professional profile picture of a young Indian man"></div>
+  </div>
+</nav>
+<main class="pt-20 max-w-container-max mx-auto px-margin-desktop py-stack-lg flex flex-col md:flex-row gap-gutter">
+<!-- Left Panel (35%): Candidate Profile Metadata -->
+<aside class="w-full md:w-[35%] flex flex-col gap-stack-lg">
+<!-- Profile Card -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm flex flex-col items-center text-center">
+<div class="relative mb-stack-md">
+<div class="w-24 h-24 rounded-full border-4 border-white shadow-md bg-cover bg-center" data-alt="A sharp, studio-quality professional portrait of a male candidate in a tailored dark suit. He has a welcoming smile and is positioned against a minimalist, bright grey studio background. The lighting is sophisticated, creating deep, rich tones and bright highlights consistent with a premium AI career platform's visual identity." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCUPoFXoQdkiHXLDCaQpie-uPaxBYGU82RJG93rYiBrz8H1dKQrn99lq6fwY42H0-nMfYWy8lE-td23iEuoD31IGdAhD0HCw-9gHqIZ9u7AylkTBqUDt7SKzqVo9IhSxWE3OlDqYSRf4-wvbXxUF5q7MzbdnKCGodyQM-a9xHxQ4nifyau-wZOYYK5zvxc1Nx6e1tl4uynmfsT3XblSXfJI7YJkaOktUK7jAZE54TotlOglJMmS7xHptp9Z7HTcqOxYidHpBJRlZBE&quot;);">
+</div>
+<div class="absolute bottom-1 right-1 w-5 h-5 bg-success-emerald border-2 border-white rounded-full"></div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary">Ritwik</h2>
+<p class="text-on-primary-container font-label-md text-label-md">Student Developer</p>
+<div class="mt-stack-lg w-full grid grid-cols-2 gap-stack-sm border-t border-muted-border pt-stack-lg">
+<div class="flex flex-col">
+<span class="text-caption font-caption text-on-surface-variant">Applications</span>
+<span class="font-headline-md text-primary">12</span>
+</div>
+<div class="flex flex-col">
+<span class="text-caption font-caption text-on-surface-variant">Interviews</span>
+<span class="font-headline-md text-primary">4</span>
+</div>
+</div>
+</div>
+<!-- Resume Strength Score -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm">
+<h3 class="font-label-md text-label-md text-primary mb-stack-lg flex justify-between items-center">
+                    Resume Strength
+                    <span class="material-symbols-outlined text-primary text-[18px]">info</span>
+</h3>
+<div class="flex flex-col items-center">
+<div class="relative w-32 h-32 rounded-full circular-progress flex items-center justify-center mb-stack-md">
+<div class="absolute inset-[10px] bg-white rounded-full flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg text-primary">85%</span>
+<span class="text-caption font-caption text-on-primary-container">Great</span>
+</div>
+</div>
+<p class="text-caption font-caption text-on-surface-variant text-center">Your resume is in the top 15% for junior developer roles. Add 2 more projects to reach 90%.</p>
+<button class="mt-stack-md w-full py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-all" onclick="window.location.href='resume.html'">Optimize Resume</button>
+</div>
+</div>
+<!-- Skill Radar Chart -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm">
+<h3 class="font-label-md text-label-md text-primary mb-stack-lg">Skill Radar (Strengths vs Growth)</h3>
+<div class="h-48 w-full flex items-center justify-center relative">
+<!-- Stylized Radar Chart Visualization -->
+<div class="absolute inset-0 border border-muted-border rounded-full scale-100 opacity-20"></div>
+<div class="absolute inset-0 border border-muted-border rounded-full scale-75 opacity-40"></div>
+<div class="absolute inset-0 border border-muted-border rounded-full scale-50 opacity-60"></div>
+<div class="w-full h-full skill-radar bg-primary/10 border-2 border-primary relative">
+<div class="absolute top-[10%] left-[45%] w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute top-[25%] right-[15%] w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute bottom-[20%] right-[30%] w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute bottom-[10%] left-[50%] w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute bottom-[30%] left-[10%] w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<span class="absolute top-0 text-[10px] font-bold text-primary">React</span>
+<span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-primary">Python</span>
+<span class="absolute bottom-0 text-[10px] font-bold text-primary">System Design</span>
+<span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-primary">Cloud</span>
+</div>
+<div class="mt-stack-md flex justify-center gap-stack-md">
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 bg-primary rounded-sm"></div>
+<span class="text-caption font-caption">Strengths</span>
+</div>
+<div class="flex items-center gap-1">
+<div class="w-3 h-3 border border-primary rounded-sm"></div>
+<span class="text-caption font-caption">Growth</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Panel (65%): Suggested Job List -->
+<section class="w-full md:w-[65%] flex flex-col gap-stack-md">
+<!-- Feed Header & Filters -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-stack-md bg-surface-container-lowest p-stack-md rounded-xl border border-muted-border shadow-sm">
+<h1 class="font-headline-md text-headline-md text-primary">Suggested for Your Profile</h1>
+<div class="flex items-center gap-stack-sm flex-wrap">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary-container text-on-primary rounded-full font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">done</span>
+                        High Match
+                    </button>
+<button class="flex items-center gap-1 px-3 py-1.5 border border-muted-border text-on-surface-variant rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                        Remote only
+                    </button>
+<button class="p-1.5 border border-muted-border text-on-surface-variant rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Job List -->
+<div class="flex flex-col gap-stack-md custom-scrollbar overflow-y-auto max-h-[calc(100vh-250px)]">
+<!-- Job Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A minimalist tech company logo featuring a sleek, geometric 'N' design in deep navy blue on a crisp white background. The aesthetic is clean, corporate, and modern, representing a high-growth technology startup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPIW4YwPcSlHFIENVm1-FWf05jPP0fiyMGPKnPkUvh0bUW8l3N0hmY5ESyFy59QLrb8BOiqt0_UMNjxXrkr2sVzMkRhz9GUlGM3Jl6-B_-QnpsgEwEvDo-EuTZpBSwD0qempc1yYj7eG5rnRp3SRkH0yNGfKQZSAm688RFlhH9GKXsgPfnLoLC3Y3ibwahDuudye_FB3LAwIxi1hfpJq2zqa0-bc4mKAOsQ-dT-ibGNGO58LwpheSrljkmdmf558Rp7t1NgjJa_Uo">
+</div>
+<div>
+<h4 class="font-headline-md text-primary group-hover:text-primary transition-colors">Frontend Intern (React)</h4>
+<p class="text-on-primary-container font-label-md">Flipkart • Bangalore (Remote)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="px-3 py-1 bg-success-bg text-success-text rounded-full font-label-md text-label-md border border-success-emerald/20">
+                                98% Match
+                            </div>
+<span class="text-caption font-caption text-on-surface-variant mt-1">Posted 2h ago</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                        Join Flipkart's frontend team to build the next generation of our e-commerce platform. Work with React, Tailwind CSS and TypeScript to create amazing user experiences.
+                    </p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">TypeScript</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">React</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Tailwind</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-opacity-90 shadow-sm transition-all">Quick Apply</button>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A modern, abstract logo for a financial technology firm. It uses a series of interlocking emerald green and slate blue circles, conveying precision, security, and global connectivity. The design is flat and elegant against a white backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgenV7LTCkwLMt3Ma_6R3D4KJ7njIoD54VJUENZ9MN-phAqkrAnbSuJ62FQYSRTq9H3FrLuBTg5LR7ftKwUqwLWX_Z25GqYHzzoC_qoPhOM_QtnAYCTrwvNg3uQrXZ58YRU35V9qThpuhi3i_e6l6EgZjnyQyF1_VC98sr8ytMRAArgh-F35QeMqPrhXbKZ2CoDgdXoT7pf3xA6OCFCk8zScvBjZjx10alCE4IFdpfb5YtxMNbHAVZj7kYIkcmuorvc42n5JKDksM">
+</div>
+<div>
+<h4 class="font-headline-md text-primary">Full-Stack Development Intern</h4>
+<p class="text-on-primary-container font-label-md">Razorpay • Hyderabad (Remote)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="px-3 py-1 bg-success-bg text-success-text rounded-full font-label-md text-label-md border border-success-emerald/20">
+                                92% Match
+                            </div>
+<span class="text-caption font-caption text-on-surface-variant mt-1">Posted 5h ago</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                        Join Razorpay's core team to develop mission-critical fintech infrastructure. Work across the stack using Node.js, Python, and AWS to power India's payments revolution.
+                    </p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Node.js</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">AWS</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Python</span>
+</div>
+<button class="px-6 py-2 border border-primary text-primary rounded-lg font-label-md hover:bg-surface-container-low transition-all">View Details</button>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-stack-md">
+<div class="flex gap-stack-md">
+<div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+<img class="w-full h-full object-contain" data-alt="A minimalist logo for a cloud-native software company, showcasing a stylized cloud icon made of sharp, geometric polygons in varying shades of slate and indigo. The lighting is diffused and professional, fitting a high-fidelity corporate UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_k8QBqgRC9AXMwkPoyFFMAviicZBv-TAg58NVhGt1KNRDXCglDZ7BzwnlRk1Hdf-3FTTWSWwgid7VtHUS5ydR8cIFJd8IsVhlvo1MiAAy9pcCpySFG1funhlhtFTqGITu5OtwpQtJeEdHRsBBXHlVgkC72t4Elq6Xxr4bFnt4-cDeoooOTJRfXifJXS3Xr9yMjjKvUg5W_3xx30nHholIgHRLW71CUP8yn6l4RhPNR984_49eku1p3ewLe7YIJGahAY5WCaSmSsE">
+</div>
+<div>
+<h4 class="font-headline-md text-primary">Cloud Infrastructure Intern</h4>
+<p class="text-on-primary-container font-label-md">Infosys • Pune (Remote)</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="px-3 py-1 bg-surface-container-high text-primary rounded-full font-label-md text-label-md">
+                                89% Match
+                            </div>
+<span class="text-caption font-caption text-on-surface-variant mt-1">Posted 1d ago</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                        Help Infosys scale globally distributed infrastructure for Fortune 500 clients. Ideal for students interested in DevOps, Docker, and Kubernetes automation.
+                    </p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Docker</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Kubernetes</span>
+<span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface">Go</span>
+</div>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-opacity-90 shadow-sm transition-all">Quick Apply</button>
+</div>
+</div>
+</div><div class="mt-stack-lg flex justify-center">
+    <button class="group flex items-center gap-2 px-8 py-3 bg-[#4F46E5] text-white rounded-xl font-label-md text-label-md shadow-md hover:scale-[1.02] hover:brightness-110 transition-all duration-200" onclick="window.location.href='internships.html'">
+        Explore More Internships
+        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+    </button>
+</div>
+</section>
+</main>
+<!-- Floating AI Prompt (Contextual Interaction) -->
+<div class="fixed bottom-10 right-10 z-50">
+<button class="group relative flex items-center justify-center w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg hover:w-48 transition-all duration-300 overflow-hidden">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:scale-110">auto_awesome</span>
+<span class="absolute left-14 opacity-0 group-hover:opacity-100 whitespace-nowrap font-label-md text-label-md transition-opacity duration-300">Ask Career AI</span>
+</button>
+</div>
+<script>
+        // Simple micro-interaction for the circular progress and job cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.group');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    // Micro-interaction logic can go here
+                });
+            });
+        });
+    </script>
+
+
+
+
+</body></html>
