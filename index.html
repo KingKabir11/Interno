@@ -2,574 +2,1488 @@
 <html class="light" lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interno - Internship Preparation Platform</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Interno - Career Launch Platform</title>
+    
+    <!-- External CSS & Libraries -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Unified Tailwind Configuration -->
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
-                        primary: "#091426",
-                        "on-primary": "#ffffff",
-                        surface: "#f8f9ff",
-                        background: "#f8f9ff",
-                        "surface-container-lowest": "#ffffff",
-                        "muted-border": "#E2E8F0",
-                        outline: "#75777d",
-                        "primary-container": "#1e293b",
+                    "colors": {
+                        "surface-variant": "#d3e4fe",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "tertiary-fixed-dim": "#c3c0ff",
                         "success-emerald": "#10B981",
-                        "success-bg": "#D1FAE5",
                         "success-text": "#065F46",
-                        "on-primary-container": "#8590a6"
+                        "surface-container-low": "#eff4ff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c6cd",
+                        "on-tertiary-container": "#8481ff",
+                        "on-secondary-fixed": "#191c1e",
+                        "muted-border": "#E2E8F0",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-container": "#8590a6",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#545f73",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-container": "#626567",
+                        "on-tertiary-fixed": "#0f0069",
+                        "background": "#f8f9ff",
+                        "outline": "#75777d",
+                        "surface-dim": "#cbdbf5",
+                        "on-tertiary-fixed-variant": "#3323cc",
+                        "on-primary-fixed-variant": "#3c475a",
+                        "inverse-surface": "#213145",
+                        "primary-container": "#1e293b",
+                        "on-primary-fixed": "#111c2d",
+                        "success-bg": "#D1FAE5",
+                        "tertiary-container": "#18008f",
+                        "overlay-dark": "rgba(15, 23, 42, 0.8)",
+                        "primary-fixed-dim": "#bcc7de",
+                        "on-secondary-fixed-variant": "#444749",
+                        "primary-fixed": "#d8e3fb",
+                        "on-surface": "#0b1c30",
+                        "primary": "#091426",
+                        "on-surface-variant": "#45474c",
+                        "secondary-container": "#e0e3e5",
+                        "on-background": "#0b1c30",
+                        "inverse-primary": "#bcc7de",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#5c5f61",
+                        "surface": "#f8f9ff",
+                        "tertiary": "#0a0054",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "secondary-fixed": "#e0e3e5",
+                        "tertiary-fixed": "#e2dfff",
+                        "surface-container-highest": "#d3e4fe"
                     },
-                    spacing: {
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
                         "margin-desktop": "80px",
                         "stack-lg": "24px",
-                        "nav-height": "70px"
+                        "stack-sm": "8px",
+                        "column-width": "120px",
+                        "gutter": "24px",
+                        "nav-height": "70px",
+                        "stack-md": "16px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["15px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
                     }
+                },
+            },
+        }
+    </script>
+
+    <!-- Unified Custom CSS Styles -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Signup styles */
+        .strength-bar { transition: width 0.3s ease, background-color 0.3s ease; }
+        .glass-panel { backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        /* Dashboard styles */
+        .circular-progress {
+            background: conic-gradient(#091426 85%, #E2E8F0 0);
+        }
+        .skill-radar {
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+        }
+
+        /* Scrollbar styles */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8f9ff;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        /* Resume builder styles */
+        .skeleton-line {
+            height: 8px;
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+            border-radius: 4px;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Template Selector styles */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 40px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 40px !important;
+        }
+        .template-card:hover .overlay-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .template-card .overlay-actions {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background min-h-screen">
+
+    <!-- Shared Global Navigation Bar -->
+    <nav id="app-navbar" class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-surface-container-lowest border-b border-muted-border hidden">
+        <a href="#dashboard" class="font-bold text-primary text-xl">Interno</a>
+        <div class="hidden md:flex gap-8 items-center" id="nav-links">
+            <a href="#resume" class="nav-link text-sm hover:text-primary transition-colors text-secondary">Resume Builder</a>
+            <a href="#internships" class="nav-link text-sm hover:text-primary transition-colors text-secondary">Apply for Internship</a>
+            <a href="#track" class="nav-link text-sm hover:text-primary transition-colors text-secondary">Track Status</a>
+            <a href="#interview" class="nav-link text-sm hover:text-primary transition-colors text-secondary">AI Mock Interview</a>
+            <a href="#practice" class="nav-link text-sm hover:text-primary transition-colors text-secondary">Practice Test</a>
+            <a href="#career" class="nav-link text-sm hover:text-primary transition-colors text-secondary">AI Career Path</a>
+        </div>
+        <div class="flex gap-4 items-center">
+            <button class="p-2 hover:bg-gray-100 rounded-full" onclick="showToast('Notifications', 'You have no new notifications.')"><span class="material-symbols-outlined">notifications</span></button>
+            <div class="w-10 h-10 rounded-full border border-muted-border bg-surface-container overflow-hidden">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs052g4m81dX59CRTajaNj9MxD_H87ouwk8AboLUv_pO_kB714BwtpUWZE6Beu4iIU9DB3HxjNzEWBd9kI0JvY-rFAd0Yaav37S5Bk4RjKfi0BWHNu4iy-ZZzfxk-f0xdYMhkNray_M88WE2RqOL7nJzG8qs7h3U_ukxdkflvxBuFFs_eQp4Cm0aHsp2MIFQY-Pfev_wgGbPauqdtBNSkXvbby5cPY3ySoGVYdSIkhJk6IMs4sXbyUU4Q" alt="Profile">
+            </div>
+        </div>
+    </nav>
+    <div id="navbar-spacer" class="pt-20 hidden"></div>
+
+    <!-- Main Screens Container -->
+    <div id="screens-container">
+
+        <!-- ==================== SCREEN: SIGN UP ==================== -->
+        <section id="screen-signup" class="screen-section">
+            <main class="flex min-h-screen">
+                <!-- Left Column (40%): Brand Panel -->
+                <section class="hidden lg:flex lg:w-[40%] bg-primary-container relative flex-col justify-between p-12 overflow-hidden">
+                    <!-- Background Decorative Element -->
+                    <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+                        <div class="absolute -top-24 -right-24 w-96 h-96 bg-tertiary-fixed-dim rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-1/4 -left-12 w-64 h-64 bg-primary-fixed rounded-full blur-2xl"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-12">
+                            <span class="material-symbols-outlined text-primary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                            <span class="font-headline-md text-headline-md font-bold text-on-primary">Interno</span>
+                        </div>
+                        <h1 class="font-headline-lg text-headline-lg text-on-primary mb-6 leading-tight">
+                            Launch your internship journey and build your professional future.
+                        </h1>
+                        <p class="font-body-md text-body-md text-secondary-fixed-dim max-w-md">
+                            Join thousands of students preparing for their dream internships with guided learning, practice, and real opportunities.
+                        </p>
+                    </div>
+                    <!-- Vector Graphic: Candidate ascending a ladder -->
+                    <div class="relative z-10 mt-auto flex justify-center">
+                        <div class="relative w-full aspect-square max-w-[400px]">
+                            <img class="w-full h-full object-contain" alt="A clean, modern vector illustration of a professional career growth symbolism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRWw-TTMcuDsg73kJTReXYD6_sqhzZvqds8gTvhXbY3N7-qwsCCAtHhIkIF3-wNMTRP4IpAefu4vp_vwr7vsbtJseU42vy9nyBlq7owdEegX-2LFXwHNURId0YFH5CImlZO2vVsHfC4sFkBzGqBjO2Fhqi7n8rax2GMHrQZtTFGiKTdujw_oBLzvMC9AddENPAb9AiazR9PnHWqbXuXcrs7CKKm9-xD89tbjjABLPxGwFK40sS_wFg6FM1qpsQBLJS37yKiczo1pU">
+                        </div>
+                    </div>
+                    <div class="relative z-10 pt-12 border-t border-white/10 mt-8">
+                        <div class="flex gap-8">
+                            <div>
+                                <p class="font-headline-md text-headline-md text-on-primary">12k+</p>
+                                <p class="font-caption text-caption text-secondary-fixed-dim">Success Stories</p>
+                            </div>
+                            <div>
+                                <p class="font-headline-md text-headline-md text-on-primary">98%</p>
+                                <p class="font-caption text-caption text-secondary-fixed-dim">Interview Accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Right Column (60%): Form Panel -->
+                <section class="w-full lg:w-[60%] bg-background flex items-center justify-center p-6 md:p-12 lg:p-24 overflow-y-auto">
+                    <div class="w-full max-w-md">
+                        <div class="lg:hidden flex items-center gap-2 mb-8">
+                            <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                            <span class="font-headline-md text-headline-md font-bold text-primary">Interno</span>
+                        </div>
+                        <div class="mb-10">
+                            <h2 class="font-headline-lg text-headline-lg lg:text-headline-lg text-on-surface mb-2">Get Started</h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Launch your internship journey with Interno.</p>
+                        </div>
+                        <!-- Social Sign-In -->
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <button onclick="window.location.hash='#dashboard'" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-muted-border bg-white hover:bg-surface-container-low transition-colors duration-200">
+                                <img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6LZIwjiFTRPxZGkit1zqeW60SuIGf-WfLMjq6SL_SbgMuHemjHl_UIUhalQd5khjJBOLpaorhnuTDSITnnQE8mKroKjjlCDZepfZ7O9QkoHR1-FFgsJYUWVZxFBCqFPS4zQMDNUU42V9GP3vH--4q68lqDl9arvFoIRDyDumEBj1uk6aKsNUCTFHI1FF93ouFFtMfplSy0bP0FrvRC-_TzDQyFXGRiXDsPAKrFkUmE6ifn5KovAN9EAXxuIL_CemkpdZlKMSITaw">
+                                <span class="font-label-md text-label-md text-on-surface">Google</span>
+                            </button>
+                            <button onclick="window.location.hash='#dashboard'" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-muted-border bg-white hover:bg-surface-container-low transition-colors duration-200">
+                                <svg class="w-5 h-5 text-[#0077B5]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                <span class="font-label-md text-label-md text-on-surface">LinkedIn</span>
+                            </button>
+                        </div>
+                        <div class="relative flex items-center mb-8">
+                            <div class="flex-grow border-t border-muted-border"></div>
+                            <span class="flex-shrink mx-4 font-caption text-caption text-on-surface-variant uppercase tracking-widest text-xs">or sign up with email</span>
+                            <div class="flex-grow border-t border-muted-border"></div>
+                        </div>
+                        <!-- Main Form -->
+                        <form class="space-y-6" onsubmit="handleSignup(event)">
+                            <div class="space-y-2">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="name">Full Name</label>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">person</span>
+                                    <input autofocus="" class="w-full pl-11 pr-4 py-3 rounded-xl border border-muted-border focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white transition-all" id="name" placeholder="Ritik" required="" type="text">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="email">Work Email</label>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">mail</span>
+                                    <input class="w-full pl-11 pr-4 py-3 rounded-xl border border-muted-border focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white transition-all" id="email" placeholder="ritik526@gmail.com" required="" type="email">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="password">Create Password</label>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">lock</span>
+                                    <input class="w-full pl-11 pr-12 py-3 rounded-xl border border-muted-border focus:ring-2 focus:ring-primary/20 focus:border-primary bg-white transition-all" id="password" oninput="updateStrengthMeter(this.value)" placeholder="••••••••" required="" type="password">
+                                    <button class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 hover:text-primary transition-colors" type="button" id="toggle-password-btn">
+                                        <span class="material-symbols-outlined">visibility</span>
+                                    </button>
+                                </div>
+                                <!-- Strength Meter -->
+                                <div class="mt-3 space-y-2">
+                                    <div class="h-1.5 w-full bg-secondary-container rounded-full overflow-hidden">
+                                        <div class="h-full w-0 strength-bar rounded-full" id="strength-meter"></div>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-caption text-caption text-on-surface-variant text-xs" id="strength-text">Password strength</span>
+                                        <span class="font-caption text-caption text-on-surface-variant text-xs">Min. 8 characters</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 py-2">
+                                <div class="flex items-center h-5">
+                                    <input class="h-4 w-4 rounded border-muted-border text-primary focus:ring-primary/20" id="terms" required="" type="checkbox">
+                                </div>
+                                <label class="font-caption text-caption text-on-surface-variant text-xs" for="terms">
+                                    I agree to the <a class="text-primary font-semibold hover:underline" href="#">Terms of Service</a> and <a class="text-primary font-semibold hover:underline" href="#">Privacy Policy</a>.
+                                </label>
+                            </div>
+                            <button class="w-full py-4 px-6 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 hover:shadow-lg transition-all transform active:scale-[0.98] flex items-center justify-center gap-2 group" type="submit">
+                                Create Free Account
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </button>
+                        </form>
+                        <p class="mt-8 text-center font-body-md text-body-md text-on-surface-variant">
+                            Already have an account?
+                            <a class="text-primary font-bold hover:underline" href="#dashboard">Log in</a>
+                        </p>
+                    </div>
+                </section>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: DASHBOARD ==================== -->
+        <section id="screen-dashboard" class="screen-section hidden">
+            <main class="max-w-container-max mx-auto px-margin-desktop py-stack-lg flex flex-col md:flex-row gap-gutter">
+                <!-- Left Panel (35%): Candidate Profile Metadata -->
+                <aside class="w-full md:w-[35%] flex flex-col gap-stack-lg">
+                    <!-- Profile Card -->
+                    <div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm flex flex-col items-center text-center">
+                        <div class="relative mb-stack-md">
+                            <div class="w-24 h-24 rounded-full border-4 border-white shadow-md bg-cover bg-center" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCUPoFXoQdkiHXLDCaQpie-uPaxBYGU82RJG93rYiBrz8H1dKQrn99lq6fwY42H0-nMfYWy8lE-td23iEuoD31IGdAhD0HCw-9gHqIZ9u7AylkTBqUDt7SKzqVo9IhSxWE3OlDqYSRf4-wvbXxUF5q7MzbdnKCGodyQM-a9xHxQ4nifyau-wZOYYK5zvxc1Nx6e1tl4uynmfsT3XblSXfJI7YJkaOktUK7jAZE54TotlOglJMmS7xHptp9Z7HTcqOxYidHpBJRlZBE&quot;);">
+                            </div>
+                            <div class="absolute bottom-1 right-1 w-5 h-5 bg-success-emerald border-2 border-white rounded-full"></div>
+                        </div>
+                        <h2 class="font-headline-md text-headline-md text-primary">Ritwik</h2>
+                        <p class="text-on-primary-container font-label-md text-label-md">Student Developer</p>
+                        <div class="mt-stack-lg w-full grid grid-cols-2 gap-stack-sm border-t border-muted-border pt-stack-lg">
+                            <div class="flex flex-col">
+                                <span class="text-caption font-caption text-on-surface-variant text-xs">Applications</span>
+                                <span class="font-headline-md text-primary">12</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-caption font-caption text-on-surface-variant text-xs">Interviews</span>
+                                <span class="font-headline-md text-primary">4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resume Strength Score -->
+                    <div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm">
+                        <h3 class="font-label-md text-label-md text-primary mb-stack-lg flex justify-between items-center">
+                            Resume Strength
+                            <span class="material-symbols-outlined text-primary text-[18px]">info</span>
+                        </h3>
+                        <div class="flex flex-col items-center">
+                            <div class="relative w-32 h-32 rounded-full circular-progress flex items-center justify-center mb-stack-md">
+                                <div class="absolute inset-[10px] bg-white rounded-full flex flex-col items-center justify-center">
+                                    <span class="font-headline-lg text-headline-lg text-primary" id="dashboard-resume-strength-txt">85%</span>
+                                    <span class="text-caption font-caption text-on-primary-container text-xs">Great</span>
+                                </div>
+                            </div>
+                            <p class="text-caption font-caption text-on-surface-variant text-center text-xs">Your resume is in the top 15% for junior developer roles. Add 2 more projects to reach 90%.</p>
+                            <button class="mt-stack-md w-full py-2 bg-primary text-on-primary rounded-lg font-label-md text-label-md hover:opacity-90 transition-all" onclick="window.location.hash='#resume'">Optimize Resume</button>
+                        </div>
+                    </div>
+                    <!-- Skill Radar Chart -->
+                    <div class="bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm">
+                        <h3 class="font-label-md text-label-md text-primary mb-stack-lg">Skill Radar (Strengths vs Growth)</h3>
+                        <div class="h-48 w-full flex items-center justify-center relative">
+                            <!-- Stylized Radar Chart Visualization -->
+                            <div class="absolute inset-0 border border-muted-border rounded-full scale-100 opacity-20"></div>
+                            <div class="absolute inset-0 border border-muted-border rounded-full scale-75 opacity-40"></div>
+                            <div class="absolute inset-0 border border-muted-border rounded-full scale-50 opacity-60"></div>
+                            <div class="w-full h-full skill-radar bg-primary/10 border-2 border-primary relative">
+                                <div class="absolute top-[10%] left-[45%] w-2 h-2 bg-primary rounded-full"></div>
+                                <div class="absolute top-[25%] right-[15%] w-2 h-2 bg-primary rounded-full"></div>
+                                <div class="absolute bottom-[20%] right-[30%] w-2 h-2 bg-primary rounded-full"></div>
+                                <div class="absolute bottom-[10%] left-[50%] w-2 h-2 bg-primary rounded-full"></div>
+                                <div class="absolute bottom-[30%] left-[10%] w-2 h-2 bg-primary rounded-full"></div>
+                            </div>
+                            <span class="absolute top-0 text-[10px] font-bold text-primary">React</span>
+                            <span class="absolute right-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-primary">Python</span>
+                            <span class="absolute bottom-0 text-[10px] font-bold text-primary">System Design</span>
+                            <span class="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-primary">Cloud</span>
+                        </div>
+                        <div class="mt-stack-md flex justify-center gap-stack-md">
+                            <div class="flex items-center gap-1">
+                                <div class="w-3 h-3 bg-primary rounded-sm"></div>
+                                <span class="text-caption font-caption text-xs">Strengths</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <div class="w-3 h-3 border border-primary rounded-sm"></div>
+                                <span class="text-caption font-caption text-xs">Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!-- Right Panel (65%): Suggested Job List -->
+                <section class="w-full md:w-[65%] flex flex-col gap-stack-md">
+                    <!-- Feed Header & Filters -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-stack-md bg-surface-container-lowest p-stack-md rounded-xl border border-muted-border shadow-sm">
+                        <h1 class="font-headline-md text-headline-md text-primary">Suggested for Your Profile</h1>
+                        <div class="flex items-center gap-stack-sm flex-wrap">
+                            <button class="flex items-center gap-1 px-3 py-1.5 bg-primary-container text-on-primary rounded-full font-label-md text-label-md">
+                                <span class="material-symbols-outlined text-[18px]">done</span>
+                                High Match
+                            </button>
+                            <button class="flex items-center gap-1 px-3 py-1.5 border border-muted-border text-on-surface-variant rounded-full font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                                Remote only
+                            </button>
+                            <button class="p-1.5 border border-muted-border text-on-surface-variant rounded-full hover:bg-surface-container-low transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">filter_list</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Job List -->
+                    <div class="flex flex-col gap-stack-md custom-scrollbar overflow-y-auto max-h-[calc(100vh-250px)]">
+                        <!-- Job Card 1 -->
+                        <div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer">
+                            <div class="flex justify-between items-start mb-stack-md">
+                                <div class="flex gap-stack-md">
+                                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+                                        <img class="w-full h-full object-contain" alt="Flipkart Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPIW4YwPcSlHFIENVm1-FWf05jPP0fiyMGPKnPkUvh0bUW8l3N0hmY5ESyFy59QLrb8BOiqt0_UMNjxXrkr2sVzMkRhz9GUlGM3Jl6-B_-QnpsgEwEvDo-EuTZpBSwD0qempc1yYj7eG5rnRp3SRkH0yNGfKQZSAm688RFlhH9GKXsgPfnLoLC3Y3ibwahDuudye_FB3LAwIxi1hfpJq2zqa0-bc4mKAOsQ-dT-ibGNGO58LwpheSrljkmdmf558Rp7t1NgjJa_Uo">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-primary group-hover:text-primary transition-colors">Frontend Intern (React)</h4>
+                                        <p class="text-on-primary-container font-label-md">Flipkart • Bangalore (Remote)</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <div class="px-3 py-1 bg-success-bg text-success-text rounded-full font-label-md text-label-md border border-success-emerald/20 text-xs">
+                                        98% Match
+                                    </div>
+                                    <span class="text-caption font-caption text-on-surface-variant mt-1 text-xs">Posted 2h ago</span>
+                                </div>
+                            </div>
+                            <p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                                Join Flipkart's frontend team to build the next generation of our e-commerce platform. Work with React, Tailwind CSS and TypeScript to create amazing user experiences.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">TypeScript</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">React</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Tailwind</span>
+                                </div>
+                                <button onclick="event.stopPropagation(); showToast('Application Sent!', 'Applied for Frontend Intern at Flipkart successfully.')" class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-opacity-90 shadow-sm transition-all text-sm">Quick Apply</button>
+                            </div>
+                        </div>
+                        <!-- Job Card 2 -->
+                        <div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer">
+                            <div class="flex justify-between items-start mb-stack-md">
+                                <div class="flex gap-stack-md">
+                                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+                                        <img class="w-full h-full object-contain" alt="Razorpay Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgenV7LTCkwLMt3Ma_6R3D4KJ7njIoD54VJUENZ9MN-phAqkrAnbSuJ62FQYSRTq9H3FrLuBTg5LR7ftKwUqwLWX_Z25GqYHzzoC_qoPhOM_QtnAYCTrwvNg3uQrXZ58YRU35V9qThpuhi3i_e6l6EgZjnyQyF1_VC98sr8ytMRAArgh-F35QeMqPrhXbKZ2CoDgdXoT7pf3xA6OCFCk8zScvBjZjx10alCE4IFdpfb5YtxMNbHAVZj7kYIkcmuorvc42n5JKDksM">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-primary">Full-Stack Development Intern</h4>
+                                        <p class="text-on-primary-container font-label-md">Razorpay • Hyderabad (Remote)</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <div class="px-3 py-1 bg-success-bg text-success-text rounded-full font-label-md text-label-md border border-success-emerald/20 text-xs">
+                                        92% Match
+                                    </div>
+                                    <span class="text-caption font-caption text-on-surface-variant mt-1 text-xs">Posted 5h ago</span>
+                                </div>
+                            </div>
+                            <p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                                Join Razorpay's core team to develop mission-critical fintech infrastructure. Work across the stack using Node.js, Python, and AWS to power India's payments revolution.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Node.js</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">AWS</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Python</span>
+                                </div>
+                                <button onclick="event.stopPropagation(); showToast('Detail View Triggered', 'Opening detailed profile view for Razorpay role.')" class="px-6 py-2 border border-primary text-primary rounded-lg font-label-md hover:bg-surface-container-low transition-all text-sm">View Details</button>
+                            </div>
+                        </div>
+                        <!-- Job Card 3 -->
+                        <div class="group bg-surface-container-lowest rounded-xl p-stack-lg border border-muted-border shadow-sm hover:scale-[1.01] hover:border-primary/50 transition-all cursor-pointer border-l-4 border-l-primary">
+                            <div class="flex justify-between items-start mb-stack-md">
+                                <div class="flex gap-stack-md">
+                                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center p-2">
+                                        <img class="w-full h-full object-contain" alt="Infosys Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_k8QBqgRC9AXMwkPoyFFMAviicZBv-TAg58NVhGt1KNRDXCglDZ7BzwnlRk1Hdf-3FTTWSWwgid7VtHUS5ydR8cIFJd8IsVhlvo1MiAAy9pcCpySFG1funhlhtFTqGITu5OtwpQtJeEdHRsBBXHlVgkC72t4Elq6Xxr4bFnt4-cDeoooOTJRfXifJXS3Xr9yMjjKvUg5W_3xx30nHholIgHRLW71CUP8yn6l4RhPNR984_49eku1p3ewLe7YIJGahAY5WCaSmSsE">
+                                    </div>
+                                    <div>
+                                        <h4 class="font-headline-md text-primary">Cloud Infrastructure Intern</h4>
+                                        <p class="text-on-primary-container font-label-md">Infosys • Pune (Remote)</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col items-end">
+                                    <div class="px-3 py-1 bg-surface-container-high text-primary rounded-full font-label-md text-label-md text-xs">
+                                        89% Match
+                                    </div>
+                                    <span class="text-caption font-caption text-on-surface-variant mt-1 text-xs">Posted 1d ago</span>
+                                </div>
+                            </div>
+                            <p class="text-body-md text-on-surface-variant line-clamp-2 mb-stack-lg">
+                                Help Infosys scale globally distributed infrastructure for Fortune 500 clients. Ideal for students interested in DevOps, Docker, and Kubernetes automation.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Docker</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Kubernetes</span>
+                                    <span class="px-2 py-1 bg-surface-container-low rounded font-caption text-caption text-on-surface text-xs">Go</span>
+                                </div>
+                                <button onclick="event.stopPropagation(); showToast('Application Sent!', 'Applied for Cloud Infrastructure Intern at Infosys successfully.')" class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-md hover:bg-opacity-90 shadow-sm transition-all text-sm">Quick Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-stack-lg flex justify-center">
+                        <button class="group flex items-center gap-2 px-8 py-3 bg-[#4F46E5] text-white rounded-xl font-label-md text-label-md shadow-md hover:scale-[1.02] hover:brightness-110 transition-all duration-200" onclick="window.location.hash='#internships'">
+                            Explore More Internships
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </div>
+                </section>
+            </main>
+            <!-- Floating AI Prompt -->
+            <div class="fixed bottom-10 right-10 z-50">
+                <button onclick="window.location.hash='#career'" class="group relative flex items-center justify-center w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg hover:w-48 transition-all duration-300 overflow-hidden">
+                    <span class="material-symbols-outlined transition-transform duration-300 group-hover:scale-110">auto_awesome</span>
+                    <span class="absolute left-14 opacity-0 group-hover:opacity-100 whitespace-nowrap font-label-md text-label-md transition-opacity duration-300">Ask Career AI</span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==================== SCREEN: RESUME BUILDER ==================== -->
+        <section id="screen-resume" class="screen-section hidden">
+            <!-- Main Workspace (Split Screen) -->
+            <main class="flex flex-col md:flex-row w-full gap-0">
+                <!-- Left: Editor Panel -->
+                <section class="w-full md:w-1/2 h-[calc(100vh-80px)] bg-white border-r border-muted-border flex flex-col overflow-y-auto custom-scrollbar">
+                    <div class="p-8 space-y-stack-lg">
+                        <!-- Header -->
+                        <div class="space-y-1">
+                            <h1 class="font-headline-lg text-headline-lg text-primary">AI Resume Builder</h1>
+                            <p class="text-on-secondary-container">Optimize your professional story with AI-driven precision.</p>
+                        </div>
+                        <!-- Portfolio Upload -->
+                        <div class="p-8 border-2 border-dashed border-muted-border rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-variant/20 transition-colors group" onclick="showToast('File Uploader', 'Drag & Drop PDF feature triggered.')">
+                            <span class="material-symbols-outlined text-4xl text-on-primary-container group-hover:scale-110 transition-transform mb-2">upload_file</span>
+                            <h3 class="font-headline-md text-headline-md text-primary mb-1">Portfolio Upload</h3>
+                            <p class="text-caption text-secondary text-xs">Drop your LinkedIn PDF or existing CV here to auto-fill details.</p>
+                        </div>
+                        <!-- AI Style Prompt Chips -->
+                        <div class="space-y-stack-sm">
+                            <label class="font-label-md text-label-md text-on-surface">AI Writing Tone</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="px-4 py-2 rounded-full bg-primary text-white font-label-md text-sm transition-all shadow-sm">Highly technical</button>
+                                <button class="px-4 py-2 rounded-full border border-muted-border bg-white text-secondary hover:border-primary hover:text-primary font-label-md text-sm transition-all" onclick="showToast('AI Tone Selector', 'Writing tone updated to Leadership')">Leadership</button>
+                                <button class="px-4 py-2 rounded-full border border-muted-border bg-white text-secondary hover:border-primary hover:text-primary font-label-md text-sm transition-all" onclick="showToast('AI Tone Selector', 'Writing tone updated to Creative')">Creative</button>
+                                <button class="px-4 py-2 rounded-full border border-muted-border bg-white text-secondary hover:border-primary hover:text-primary font-label-md text-sm transition-all" onclick="showToast('AI Tone Selector', 'Writing tone updated to Academic')">Academic</button>
+                            </div>
+                        </div>
+                        <!-- Manual Entry Accordions -->
+                        <div class="space-y-stack-sm">
+                            <!-- Personal Info -->
+                            <div class="border border-muted-border rounded-lg overflow-hidden">
+                                <button class="w-full px-4 py-4 flex items-center justify-between bg-surface-container-lowest hover:bg-surface-bright transition-colors" onclick="toggleAccordion('personal')">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary">person</span>
+                                        <span class="font-label-md text-label-md">Personal Information</span>
+                                    </div>
+                                    <span class="material-symbols-outlined transform transition-transform duration-200" id="icon-personal">expand_more</span>
+                                </button>
+                                <div class="hidden px-4 py-6 bg-white border-t border-muted-border space-y-4" id="content-personal">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="space-y-1">
+                                            <label class="text-caption font-bold text-xs">First Name</label>
+                                            <input id="cv-first-name" oninput="updateCVPreview()" class="w-full border-muted-border rounded-lg focus:ring-primary focus:border-primary" placeholder="e.g. Ritwik" type="text" value="Ritwik">
+                                        </div>
+                                        <div class="space-y-1">
+                                            <label class="text-caption font-bold text-xs">Last Name</label>
+                                            <input id="cv-last-name" oninput="updateCVPreview()" class="w-full border-muted-border rounded-lg focus:ring-primary focus:border-primary" placeholder="e.g. Sharma" type="text" value="Sharma">
+                                        </div>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-caption font-bold text-xs">Professional Summary</label>
+                                        <textarea id="cv-summary" oninput="updateCVPreview()" class="w-full border-muted-border rounded-lg focus:ring-primary focus:border-primary" placeholder="Describe your career goals..." rows="3">Enthusiastic computer science student passionate about building web applications and solving real-world problems. Self-taught developer with strong fundamentals in full-stack development. Seeking first internship opportunity to gain practical experience and contribute to impactful projects.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience -->
+                            <div class="border border-primary rounded-lg overflow-hidden shadow-sm">
+                                <button class="w-full px-4 py-4 flex items-center justify-between bg-surface-container-low hover:bg-surface-container-high transition-colors" onclick="toggleAccordion('experience')">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary">work</span>
+                                        <span class="font-label-md text-label-md text-primary">Professional Experience</span>
+                                    </div>
+                                    <span class="material-symbols-outlined transform transition-transform duration-200 rotate-180" id="icon-experience">expand_more</span>
+                                </button>
+                                <div class="px-4 py-6 bg-white border-t border-muted-border space-y-4" id="content-experience">
+                                    <div class="flex justify-between items-center">
+                                        <h4 class="font-label-md text-primary">Current Role</h4>
+                                        <button class="text-primary hover:underline text-caption flex items-center gap-1 text-xs" id="cv-ai-optimize-btn">
+                                            <span class="material-symbols-outlined text-sm">auto_fix</span> AI Optimize
+                                        </button>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <input id="cv-exp-title" oninput="updateCVPreview()" class="w-full border-muted-border rounded-lg focus:ring-primary focus:border-primary" type="text" value="E-Commerce Platform Project">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <textarea id="cv-exp-desc" oninput="updateCVPreview()" class="w-full border-muted-border rounded-lg focus:ring-primary focus:border-primary text-sm" rows="4">Built full-stack e-commerce application with product catalog, shopping cart, and payment integration using React, Node.js, and MongoDB. Implemented user authentication and order management system.</textarea>
+                                    </div>
+                                    <button class="w-full py-2 border-2 border-dashed border-muted-border rounded-lg text-secondary hover:bg-surface-bright flex items-center justify-center gap-2 font-label-md text-sm" onclick="showToast('Form Action', 'New experience block added.')">
+                                        <span class="material-symbols-outlined">add</span> Add Another Experience
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Education -->
+                            <div class="border border-muted-border rounded-lg overflow-hidden">
+                                <button class="w-full px-4 py-4 flex items-center justify-between bg-surface-container-lowest hover:bg-surface-bright transition-colors" onclick="toggleAccordion('education')">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary">school</span>
+                                        <span class="font-label-md text-label-md">Education</span>
+                                    </div>
+                                    <span class="material-symbols-outlined transform transition-transform duration-200" id="icon-education">expand_more</span>
+                                </button>
+                                <div class="hidden px-4 py-6 bg-white border-t border-muted-border" id="content-education">
+                                    <p class="text-sm text-secondary text-center">Add your degrees and certifications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Right: Live Preview Panel -->
+                <section class="w-full md:w-1/2 bg-background p-8 flex flex-col relative overflow-y-auto">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+                            <span class="material-symbols-outlined text-success-emerald">visibility</span>
+                            Live CV Preview
+                        </h3>
+                        <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-muted-border shadow-sm">
+                            <div class="w-2 h-2 rounded-full bg-success-emerald animate-pulse"></div>
+                            <span class="text-caption font-bold text-success-text text-xs">Draft auto-saved</span>
+                        </div>
+                    </div>
+                    <!-- CV Preview Frame -->
+                    <div class="flex-1 bg-white shadow-2xl rounded-sm border border-muted-border p-12 overflow-y-auto custom-scrollbar max-w-[800px] mx-auto w-full origin-top">
+                        <!-- Resume Header -->
+                        <div class="border-b-2 border-primary pb-6 mb-8">
+                            <h1 class="font-headline-lg text-headline-lg text-primary mb-1" id="preview-name">Ritwik Sharma</h1>
+                            <p class="text-on-primary-container font-body-md mb-2">Student Developer | Bangalore, India</p>
+                            <p class="text-on-surface-variant text-sm">ritwik.sharma@email.com | +91 98765 43210 | linkedin.com/in/ritwik-sharma</p>
+                        </div>
+                        <!-- Resume Sections -->
+                        <div class="space-y-8">
+                            <!-- Professional Summary -->
+                            <section>
+                                <h4 class="font-label-md uppercase tracking-widest text-primary border-b border-muted-border pb-2 mb-3 text-sm">Professional Summary</h4>
+                                <p class="text-on-surface-variant text-sm leading-relaxed" id="preview-summary">Enthusiastic computer science student passionate about building web applications and solving real-world problems. Self-taught developer with strong fundamentals in full-stack development. Seeking first internship opportunity to gain practical experience and contribute to impactful projects.</p>
+                            </section>
+
+                            <!-- Projects -->
+                            <section>
+                                <h4 class="font-label-md uppercase tracking-widest text-primary border-b border-muted-border pb-2 mb-3 text-sm">Academic Projects</h4>
+                                <div class="space-y-4">
+                                    <div>
+                                        <div class="flex justify-between items-start mb-1">
+                                            <h5 class="font-label-md text-primary" id="preview-exp-title">E-Commerce Platform</h5>
+                                            <span class="text-sm text-on-surface-variant">Dec 2023 - Present</span>
+                                        </div>
+                                        <p class="text-sm text-on-primary-container mb-2">University Project | React, Node.js, MongoDB</p>
+                                        <ul class="text-sm text-on-surface-variant space-y-1 list-disc list-inside">
+                                            <li id="preview-exp-desc">Built full-stack e-commerce application with product catalog, shopping cart, and payment integration</li>
+                                            <li>Implemented user authentication and order management system</li>
+                                            <li>Deployed on Heroku with responsive UI designed for mobile and desktop</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-start mb-1">
+                                            <h5 class="font-label-md text-primary">Task Management Web App</h5>
+                                            <span class="text-sm text-on-surface-variant">Aug 2023 - Oct 2023</span>
+                                        </div>
+                                        <p class="text-sm text-on-primary-container mb-2">Class Assignment | React, Tailwind CSS, Firebase</p>
+                                        <ul class="text-sm text-on-surface-variant space-y-1 list-disc list-inside">
+                                            <li>Developed collaborative task management tool with real-time updates using Firebase</li>
+                                            <li>Implemented user dashboard, task creation, and priority management features</li>
+                                            <li>Designed intuitive UI with Tailwind CSS achieving 95+ Lighthouse score</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between items-start mb-1">
+                                            <h5 class="font-label-md text-primary">Weather Application</h5>
+                                            <span class="text-sm text-on-surface-variant">May 2023 - Jun 2023</span>
+                                        </div>
+                                        <p class="text-sm text-on-primary-container mb-2">Personal Project | HTML, CSS, JavaScript, API Integration</p>
+                                        <ul class="text-sm text-on-surface-variant space-y-1 list-disc list-inside">
+                                            <li>Created weather app using OpenWeather API with real-time location-based forecasts</li>
+                                            <li>Implemented search functionality and favorite locations feature</li>
+                                            <li>Responsive design working seamlessly across all devices</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Skills -->
+                            <section>
+                                <h4 class="font-label-md uppercase tracking-widest text-primary border-b border-muted-border pb-2 mb-3 text-sm">Technical Skills</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><span class="font-label-md text-primary">Languages:</span> <span class="text-on-surface-variant">JavaScript, Python, HTML, CSS, SQL</span></div>
+                                    <div><span class="font-label-md text-primary">Frontend:</span> <span class="text-on-surface-variant">React, Tailwind CSS, Bootstrap, Responsive Design</span></div>
+                                    <div><span class="font-label-md text-primary">Backend:</span> <span class="text-on-surface-variant">Node.js, Express.js, REST APIs</span></div>
+                                    <div><span class="font-label-md text-primary">Databases:</span> <span class="text-on-surface-variant">MongoDB, Firebase, MySQL</span></div>
+                                    <div><span class="font-label-md text-primary">Tools:</span> <span class="text-on-surface-variant">Git, VS Code, Postman, Chrome DevTools</span></div>
+                                </div>
+                            </section>
+
+                            <!-- Education -->
+                            <section>
+                                <h4 class="font-label-md uppercase tracking-widest text-primary border-b border-muted-border pb-2 mb-3 text-sm">Education</h4>
+                                <div>
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h5 class="font-label-md text-primary">B.Tech Computer Science</h5>
+                                        <span class="text-sm text-on-surface-variant">Expected 2025</span>
+                                    </div>
+                                    <p class="text-sm text-on-primary-container">Indian Institute of Technology, Delhi | CGPA: 7.8/10</p>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h5 class="font-label-md text-primary">Relevant Coursework</h5>
+                                    </div>
+                                    <p class="text-sm text-on-surface-variant">Data Structures, Algorithms, Web Development, Database Management, Software Engineering</p>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-center w-full">
+                        <button class="bg-primary text-white px-8 py-4 rounded-full shadow-lg flex items-center gap-3 font-headline-md hover:scale-105 active:scale-95 transition-all group" onclick="window.location.hash='#template'">
+                            Choose Template
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+                    </div>
+                    <!-- Floating Actions -->
+                    <div class="absolute bottom-12 right-12 flex flex-col items-end">
+                        <div class="flex gap-2">
+                            <button class="w-12 h-12 bg-white border border-muted-border rounded-full flex items-center justify-center text-primary shadow-lg hover:bg-surface-container-low transition-all" onclick="showToast('Download Triggered', 'Your CV file is preparing for download.')">
+                                <span class="material-symbols-outlined">download</span>
+                            </button>
+                            <button class="w-12 h-12 bg-white border border-muted-border rounded-full flex items-center justify-center text-primary shadow-lg hover:bg-surface-container-low transition-all" onclick="window.print()">
+                                <span class="material-symbols-outlined">print</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: TEMPLATE SELECTOR ==================== -->
+        <section id="screen-template" class="screen-section hidden">
+            <main class="max-w-container-max mx-auto px-margin-desktop py-12">
+                <!-- Masonry Grid -->
+                <div class="masonry-grid">
+                    <!-- Template 1: Modern Minimalist -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border border-muted-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3C8XbdFByHXpb9sUngaJv_iLs_BSNbESbwOeVmZrO2o0TqGJMBR1gr2A9kXjZm4fC1ppSZvyPKflbVOAKl_RJxXXAroq6y6B4-E8MvQ3x525BFIGmPwPifIuaw9G9UDKxMb5i0WjEeVW3IdhJ8vzLFC7puaSJqKjsQqVIZkqFlEJVz3SS_yHuWLplme3pCGzX8aT-2zmp-q_CIB5z4wcP2znEstVnjKMRWYsg28_u6Yl3LhJqwBV2xaBjdX0DdELloyeNZ9NjTGg">
+                                <!-- Hover Overlay -->
+                                <div class="overlay-actions absolute inset-0 bg-overlay-dark flex flex-col items-center justify-center gap-4 px-6">
+                                    <button class="w-full py-3 bg-[#4F46E5] text-white rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"><span class="material-symbols-outlined">edit</span>Customize Template</button>
+                                    <button class="w-full py-3 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-white/30 transition-all">
+                                        <span class="material-symbols-outlined">zoom_in</span>Zoom View
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Modern Minimalist</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Design &amp; Arts</p>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant" style="cursor: pointer;">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Template 2: Creative Executive (ACTIVE STATE) -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border-2 border-[#4F46E5] rounded-xl overflow-hidden cursor-pointer shadow-lg">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <!-- Active Badge -->
+                                <button class="absolute top-4 right-4 z-10 w-10 h-10 bg-[#4F46E5] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-opacity-90 cursor-pointer">
+                                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                </button>
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt434GZQPAaE044SmNxC9tiNGAcZEayUM3Bvc-g9S8tdYlr9vThN5jBx3MC--zaRlcFLoBwE1IXydAI2KQRYjc41lo5wuCN8OpSz7FPUOOpU87Wo67TYvkumQ2-cAmr54MtNN88PWbQ3ToiSAxnWJOYIvHEeCHHpWbY3NH9kW5U8OLgc56Sn-e1CejTfUnaTmcanY6AZGF_9nE6UOOzPCYhkCED8QaBdh_RNggBgcBi4Q_W-wAxEi9KbNgow-8N8Nsb4UVboV9C0w">
+                                <!-- Hover Overlay -->
+                                <div class="overlay-actions absolute inset-0 bg-overlay-dark flex flex-col items-center justify-center gap-4 px-6">
+                                    <button class="w-full py-3 bg-[#4F46E5] text-white rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"><span class="material-symbols-outlined">edit</span>Customize Template</button>
+                                    <button class="w-full py-3 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-white/30 transition-all"><span class="material-symbols-outlined">zoom_in</span>Zoom View</button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Creative Executive</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Management</p>
+                                </div>
+                                <span class="text-[#4F46E5] font-label-md text-sm">Selected</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Template 3: Silicon Valley Tech -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border border-muted-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeDEbhKvJ4divgBFXtL1FvfBo6xeT2vWpofJr5d-hBDvhu4cmwmGQmcXOpkTupieDaFdfn93Je_eg32NwWE-9u42twc1RwwPVc33A4KceV3V7sPAsrBPR5Nd-k4qQmJAiN-VCPczNoaAxtpJ_bm_fHJ2UlbXjarKU0M5ydnY--pELN3WApNp2SMWAmQVHIjVgNBEUJqSDeSMq5_DiJKF2PcmBvZKxRzEYGgHCcXjLdtQmK3nc-mnBu5uX4p5U4fexESeBxwIemgxo">
+                                <div class="overlay-actions absolute inset-0 bg-overlay-dark flex flex-col items-center justify-center gap-4 px-6">
+                                    <button class="w-full py-3 bg-[#4F46E5] text-white rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"><span class="material-symbols-outlined">edit</span>Customize Template</button>
+                                    <button class="w-full py-3 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-white/30 transition-all"><span class="material-symbols-outlined">zoom_in</span>Zoom View</button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Silicon Valley Tech</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Developers</p>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant" style="cursor: pointer;">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Template 4: Narrative Storyteller -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border border-muted-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmQJl2hqhvgAv_Be3EzPhtu-C9SrffGmo8NvXz_HJ3m9hA-4L0f5926KfqxB7HPkfOHfraE9sTMyLW2hbIvz5DK6wCohxWgxosUi6OgFfT-5ZOjOZIarEkwcj0Z0hyRtgZlffn_7n--a5veCLl7dEwaYwToya35xCEqS9fl42cE0vdXZkvnDMFibG4ZCY86qKQJAGO9546B4nQe7COATTDbjGLabaysLwlHhTcx5Im97lp_vU0EXAP3_W5EIuH7EqGMAuxOEE6cz8">
+                                <div class="overlay-actions absolute inset-0 bg-overlay-dark flex flex-col items-center justify-center gap-4 px-6">
+                                    <button class="w-full py-3 bg-[#4F46E5] text-white rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"><span class="material-symbols-outlined">edit</span>Customize Template</button>
+                                    <button class="w-full py-3 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-white/30 transition-all"><span class="material-symbols-outlined">zoom_in</span>Zoom View</button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Narrative Storyteller</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Marketing</p>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant" style="cursor: pointer;">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Template 5: Global Academic -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border border-muted-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhxJ2Ezsk5Mgc1joGVMzc_p7a7KN3MpbMmVs_pFXT5_DTDaq91WRNdtv0E0jBqneDqbQpYcgHBnd_8_2nIi8v8ZPuZoVzlkNRTDSB99Hy7nhso5T_9dWDK42Lnvx8DAYuK0hNicN1j0V1LBVRta0FlpA9CT-pbPDXgQqzTKEogNbeoX7F7l6bmXiM_ROEjovcpKMYVFqLdltUWdhVtXa4_yc0IuftCXEvvXOnIkisDbh9YLCWPgeVBkOBitbvZEc-6Odki9fDqW1o">
+                                <div class="absolute inset-0 bg-surface/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
+                                    <button class="flex items-center gap-2 bg-primary text-on-primary px-4 py-2 rounded-full font-label-md transition-all hover:bg-primary-container hover:text-on-primary-container text-sm">
+                                        <span class="material-symbols-outlined text-[#4F46E5]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                        Use This Template
+                                    </button>
+                                    <button class="flex items-center gap-2 bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface px-4 py-2 rounded-full font-label-md border border-outline-variant transition-all hover:bg-surface-container-low text-sm">
+                                        <span class="material-symbols-outlined">zoom_in</span>
+                                        Zoom View
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Global Academic</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Research</p>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant" style="cursor: pointer;">star</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Template 6: Analytical Pro -->
+                    <div class="masonry-item">
+                        <div class="template-card relative group bg-white border border-muted-border rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <div class="aspect-[3/4] bg-surface-container-low relative overflow-hidden">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmWy9WmwRPPlaviszxf8BFjt0JjR1Xlt7Ic3IszTlFWJWauROXMseQOK70g043ms2_6XY7-KVKSgLLolivpstyfOS34A0_Y-it9AwSJVuF_DSMrM5yVfkvF_BwqNesDRUSVgwF7l6R2kksRie4KPq3zpk36vjtzRDN31F_PKVN8s421T7goJuKCYgX68SjML92ZUdVLYQF1SE3k7iZ1lEbX6drkZjgyk5rV8ph3XJRg-aj6RSPoXwgfH7yMk1tDlv82haja3UTXo8">
+                                <div class="overlay-actions absolute inset-0 bg-overlay-dark flex flex-col items-center justify-center gap-4 px-6">
+                                    <button class="w-full py-3 bg-[#4F46E5] text-white rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all"><span class="material-symbols-outlined">edit</span>Customize Template</button>
+                                    <button class="w-full py-3 bg-white/20 backdrop-blur-md text-white border border-white/30 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-white/30 transition-all"><span class="material-symbols-outlined">zoom_in</span>Zoom View</button>
+                                </div>
+                            </div>
+                            <div class="p-4 flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-label-md text-primary text-sm font-bold">Analytical Pro</h3>
+                                    <p class="text-caption text-on-surface-variant text-xs">Best for Finance</p>
+                                </div>
+                                <span class="material-symbols-outlined text-on-surface-variant" style="cursor: pointer;">star</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sticky Bottom Action Bar -->
+                <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 w-max max-w-full px-4">
+                    <div class="bg-primary-container text-on-primary border border-outline-variant rounded-full px-8 py-4 shadow-2xl flex items-center gap-6 backdrop-blur-lg bg-opacity-95">
+                        <div class="flex flex-col">
+                            <span class="text-caption text-secondary-fixed-dim text-xs">Currently Selected</span>
+                            <span id="active-template-bar-name" class="font-label-md text-white text-sm">Creative Executive</span>
+                        </div>
+                        <div class="h-8 w-[1px] bg-outline-variant"></div>
+                        <button class="bg-success-emerald text-white px-6 py-2 rounded-full font-label-md hover:scale-105 transition-all shadow-md active:scale-95 hover:bg-opacity-90 duration-200 text-sm" onclick="window.location.hash='#resume'">Confirm &amp; Start Editing</button>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: APPLY FOR INTERNSHIP ==================== -->
+        <section id="screen-internships" class="screen-section hidden">
+            <main class="max-w-6xl mx-auto px-margin-desktop py-stack-lg">
+                <h1 class="text-3xl font-bold text-primary mb-2">Internship Opportunities</h1>
+                <p class="text-gray-600 mb-8">Discover internships matched to your skills and career goals.</p>
+                <div class="space-y-4">
+                    <!-- Internship Card 1 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">Frontend Engineer Intern</h3>
+                                    <p class="text-sm text-gray-600">Flipkart • Bangalore (Remote)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">98% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Build responsive web interfaces using React and modern CSS frameworks for India's largest e-commerce platform.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">React</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">TypeScript</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Tailwind</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for Frontend Engineer Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                    <!-- Internship Card 2 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">Full Stack Developer Intern</h3>
+                                    <p class="text-sm text-gray-600">Razorpay • Hyderabad (Hybrid)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">92% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Develop and maintain web applications using Node.js and React. Work on India's leading fintech payment platform.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Node.js</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Python</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">MongoDB</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for Full Stack Developer Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                    <!-- Internship Card 3 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">Backend Engineering Intern</h3>
+                                    <p class="text-sm text-gray-600">Infosys • Pune (Remote)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">88% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Build scalable backend systems and APIs. Work with cloud services and databases for Fortune 500 clients.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Java</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">AWS</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">PostgreSQL</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for Backend Engineering Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                    <!-- Internship Card 4 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">Data Science Intern</h3>
+                                    <p class="text-sm text-gray-600">BYJU'S • Mumbai (Remote)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">85% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Analyze large datasets and build machine learning models for India's leading edtech platform.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Python</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">SQL</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Pandas</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for Data Science Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                    <!-- Internship Card 5 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">Mobile Developer Intern</h3>
+                                    <p class="text-sm text-gray-600">Swiggy • Bangalore (On-site)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">91% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Develop iOS and Android applications using React Native and native frameworks for India's leading food delivery platform.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">React Native</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Swift</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Firebase</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for Mobile Developer Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                    <!-- Internship Card 6 -->
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50 transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex gap-4">
+                                <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-primary text-2xl">business</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary text-lg">DevOps Engineer Intern</h3>
+                                    <p class="text-sm text-gray-600">HCL Technologies • Chennai (Remote)</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">84% Match</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Manage cloud infrastructure, CI/CD pipelines, and containerized applications for global IT services leader.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Docker</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Kubernetes</span>
+                                <span class="px-2 py-1 bg-gray-100 rounded text-xs text-gray-700">Jenkins</span>
+                            </div>
+                            <button onclick="showToast('Application Sent!', 'Successfully applied for DevOps Engineer Intern position.')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 text-sm font-bold">Quick Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: APPLICATION TRACKER ==================== -->
+        <section id="screen-track" class="screen-section hidden">
+            <main class="max-w-6xl mx-auto px-margin-desktop py-stack-lg">
+                <h1 class="text-3xl font-bold text-primary mb-8">Application Tracker</h1>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary block mb-3">check_circle</span>
+                        <p class="text-3xl font-bold text-primary">12</p>
+                        <p class="text-sm text-gray-600">Applications Sent</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary block mb-3">schedule</span>
+                        <p class="text-3xl font-bold text-primary">4</p>
+                        <p class="text-sm text-gray-600">Interviews Scheduled</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm text-center">
+                        <span class="material-symbols-outlined text-4xl text-primary block mb-3">trending_up</span>
+                        <p class="text-3xl font-bold text-primary">33%</p>
+                        <p class="text-sm text-gray-600">Success Rate</p>
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest rounded-xl p-6 border border-muted-border shadow-sm">
+                    <h2 class="text-xl font-bold text-primary mb-6">Recent Applications</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 border border-muted-border rounded-lg">
+                            <div>
+                                <p class="font-bold text-primary">Frontend Engineer Intern</p>
+                                <p class="text-sm text-gray-600">Tech Corp • 2 days ago</p>
+                            </div>
+                            <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">Interview</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: AI MOCK INTERVIEW ==================== -->
+        <section id="screen-interview" class="screen-section hidden">
+            <main class="max-w-6xl mx-auto px-margin-desktop py-stack-lg">
+                <h1 class="text-3xl font-bold text-primary mb-8">AI Mock Interview</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-surface-container-lowest rounded-xl p-8 border border-muted-border shadow-sm flex flex-col justify-between">
+                        <div>
+                            <label class="block text-sm font-bold text-primary mb-4">Position Type</label>
+                            <select class="w-full px-4 py-2 border border-muted-border rounded-lg mb-6 focus:ring-2 focus:ring-primary/20">
+                                <option>Software Engineer</option>
+                                <option>Product Manager</option>
+                                <option>Data Scientist</option>
+                            </select>
+                            <label class="block text-sm font-bold text-primary mb-4">Difficulty Level</label>
+                            <select class="w-full px-4 py-2 border border-muted-border rounded-lg mb-6 focus:ring-2 focus:ring-primary/20">
+                                <option>Beginner</option>
+                                <option>Intermediate</option>
+                                <option>Advanced</option>
+                            </select>
+                        </div>
+                        <button onclick="startInterviewSimulation()" class="w-full px-6 py-3 bg-primary text-white rounded-lg hover:opacity-90 font-bold transition-all mt-4">Start Interview</button>
+                    </div>
+                    <div class="bg-primary/10 rounded-xl p-8 flex items-center justify-center min-h-[300px]" id="interview-video-container">
+                        <div class="text-center">
+                            <span class="material-symbols-outlined text-6xl text-primary block mb-4">videocam</span>
+                            <h3 class="text-xl font-bold text-primary">Camera Ready</h3>
+                            <p class="text-gray-600 mt-2">Ensure good lighting and quiet environment</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: PRACTICE TESTS ==================== -->
+        <section id="screen-practice" class="screen-section hidden">
+            <main class="max-w-6xl mx-auto px-margin-desktop py-stack-lg">
+                <h1 class="text-3xl font-bold text-primary mb-8">Practice Tests</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-surface-container-lowest rounded-xl p-8 border border-muted-border shadow-sm">
+                        <span class="material-symbols-outlined text-4xl text-primary mb-4 block">assignment</span>
+                        <h3 class="text-xl font-bold text-primary mb-2">Practice Assignment</h3>
+                        <p class="text-gray-600 mb-6">Complete real-world assignments to build practical skills.</p>
+                        <button onclick="showToast('Practice Session Launched', 'Loading dynamic assignment questions...')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Start Practice</button>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-xl p-8 border border-muted-border shadow-sm">
+                        <span class="material-symbols-outlined text-4xl text-primary mb-4 block">psychology</span>
+                        <h3 class="text-xl font-bold text-primary mb-2">Behavioral Questions</h3>
+                        <p class="text-gray-600 mb-6">Master STAR method and behavioral interview techniques.</p>
+                        <button onclick="showToast('STAR Practice Launched', 'Preparing STAR interview modules...')" class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Start Practice</button>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+
+        <!-- ==================== SCREEN: AI CAREER PATH ==================== -->
+        <section id="screen-career" class="screen-section hidden">
+            <main class="max-w-6xl mx-auto px-margin-desktop py-stack-lg">
+                <h1 class="text-3xl font-bold text-primary mb-8">AI Career Path</h1>
+                <div class="bg-surface-container-lowest rounded-xl p-8 border border-muted-border shadow-sm animate-fade-in">
+                    <h2 class="text-xl font-bold text-primary mb-6">Your Personalized Career Roadmap</h2>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-primary pl-6 py-2">
+                            <h3 class="font-bold text-primary mb-2">Current Level: Junior Developer</h3>
+                            <p class="text-gray-600">You have foundational skills in web development. Focus on building projects and gaining practical experience.</p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6 py-2 hover:border-primary transition-colors cursor-pointer" onclick="showToast('Roadmap Recommendation', 'Course list: HTML/CSS, React design systems, advanced node architecture.')">
+                            <h3 class="font-bold text-gray-600 mb-2 hover:text-primary transition-colors">Next: Mid-Level Engineer (6-12 months)</h3>
+                            <p class="text-gray-600">Recommended: Master system design, data structures, and advanced JavaScript.</p>
+                        </div>
+                        <div class="border-l-4 border-gray-300 pl-6 py-2 hover:border-primary transition-colors cursor-pointer" onclick="showToast('Roadmap Recommendation', 'Resource guides: System designs at scale, cloud architect credentials.')">
+                            <h3 class="font-bold text-gray-600 mb-2 hover:text-primary transition-colors">Goal: Senior Engineer (2-3 years)</h3>
+                            <p class="text-gray-600">Lead projects, mentor junior developers, and specialize in a technical domain.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+
+    </div>
+
+    <!-- Success Toast Notification -->
+    <div class="fixed top-6 left-1/2 -translate-x-1/2 z-[100] transform -translate-y-24 opacity-0 transition-all duration-500 ease-out" id="success-toast">
+        <div class="bg-success-bg border border-success-emerald/20 px-6 py-4 rounded-xl shadow-xl flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-success-emerald/20 flex items-center justify-center">
+                <span class="material-symbols-outlined text-success-text" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <div>
+                <p class="font-label-md text-label-md text-success-text" id="success-toast-title">Account created successfully!</p>
+                <p class="font-caption text-caption text-success-text/80 text-xs" id="success-toast-desc">Redirecting to your dashboard...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SCRIPTS & INTERACTIVITY ==================== -->
+    <script>
+        // Global State & Persistent Variables
+        let selectedTemplate = "Creative Executive";
+
+        // Global Toast Notification Helper
+        function showToast(title, desc) {
+            const toast = document.getElementById('success-toast');
+            const titleEl = document.getElementById('success-toast-title');
+            const descEl = document.getElementById('success-toast-desc');
+            
+            titleEl.innerText = title;
+            descEl.innerText = desc;
+
+            toast.classList.remove('-translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // SPA Router logic
+        function handleRoute() {
+            const hash = window.location.hash || '#signup';
+            const screenId = hash.replace('#', '');
+
+            // Hide all screens
+            document.querySelectorAll('.screen-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show active screen
+            const activeSection = document.getElementById(`screen-${screenId}`);
+            if (activeSection) {
+                activeSection.classList.remove('hidden');
+            } else {
+                document.getElementById('screen-signup').classList.remove('hidden');
+            }
+
+            // Show/Hide Navbar depending on auth screen
+            const navbar = document.getElementById('app-navbar');
+            const spacer = document.getElementById('navbar-spacer');
+            if (screenId === 'signup') {
+                navbar.classList.add('hidden');
+                spacer.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+                spacer.classList.remove('hidden');
+            }
+
+            // Sync Navbar Links Highlighting
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkHash = link.getAttribute('href');
+                if (linkHash === hash) {
+                    link.className = "nav-link text-sm text-primary font-bold border-b-2 border-primary py-2";
+                } else {
+                    link.className = "nav-link text-sm hover:text-primary text-secondary transition-colors py-2";
                 }
+            });
+
+            // Scroll window to top
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('hashchange', handleRoute);
+        window.addEventListener('load', handleRoute);
+
+
+        // ==================== SCREEN ACTIONS ====================
+
+        // SIGN UP ACTIONS
+        function updateStrengthMeter(val) {
+            const meter = document.getElementById('strength-meter');
+            const text = document.getElementById('strength-text');
+
+            let score = 0;
+            if (val.length > 5) score++;
+            if (val.length > 8) score++;
+            if (/[A-Z]/.test(val)) score++;
+            if (/[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val)) score++;
+
+            const states = [
+                { width: '20%', color: 'bg-error', label: 'Very Weak' },
+                { width: '40%', color: 'bg-error', label: 'Weak' },
+                { width: '60%', color: 'bg-amber-500', label: 'Medium' },
+                { width: '80%', color: 'bg-success-emerald', label: 'Strong' },
+                { width: '100%', color: 'bg-success-emerald', label: 'Very Strong' }
+            ];
+
+            if (val.length === 0) {
+                meter.style.width = '0%';
+                text.innerText = 'Password strength';
+                return;
+            }
+
+            const state = states[Math.min(score, 4)];
+            meter.style.width = state.width;
+            meter.className = `h-full strength-bar rounded-full ${state.color}`;
+            text.innerText = state.label;
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            showToast('Account created successfully!', 'Redirecting to your dashboard...');
+            setTimeout(() => {
+                window.location.hash = '#dashboard';
+            }, 2000);
+        }
+
+        // Toggle Password visibility
+        const toggleBtn = document.getElementById('toggle-password-btn');
+        const passInput = document.getElementById('password');
+        if (toggleBtn && passInput) {
+            toggleBtn.addEventListener('click', () => {
+                const isPass = passInput.type === 'password';
+                passInput.type = isPass ? 'text' : 'password';
+                toggleBtn.children[0].innerText = isPass ? 'visibility_off' : 'visibility';
+            });
+        }
+
+
+        // RESUME ACCORDIONS & PREVIEW INTERACTION
+        function toggleAccordion(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Realtime CV Preview Sync
+        function updateCVPreview() {
+            const firstName = document.getElementById('cv-first-name').value;
+            const lastName = document.getElementById('cv-last-name').value;
+            const summary = document.getElementById('cv-summary').value;
+            const expTitle = document.getElementById('cv-exp-title').value;
+            const expDesc = document.getElementById('cv-exp-desc').value;
+
+            document.getElementById('preview-name').innerText = `${firstName} ${lastName}`;
+            document.getElementById('preview-summary').innerText = summary;
+            document.getElementById('preview-exp-title').innerText = expTitle;
+            document.getElementById('preview-exp-desc').innerText = expDesc;
+        }
+
+        // AI Optimize Resume Button Loader
+        const aiOptimizeBtn = document.getElementById('cv-ai-optimize-btn');
+        if (aiOptimizeBtn) {
+            aiOptimizeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="material-symbols-outlined text-sm">sync</span> Optimizing...';
+                this.classList.add('animate-pulse');
+                
+                setTimeout(() => {
+                    // Simulate optimized text insertion
+                    document.getElementById('cv-exp-desc').value = "Engineered a scalable, full-stack ecommerce platform utilizing React, Node.js, and MongoDB. Authored secure user authentication flows and complex checkout integrations, resulting in optimized load times and high availability deployment environments.";
+                    updateCVPreview();
+                    
+                    // Show completion badge
+                    this.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Ready!';
+                    this.classList.remove('animate-pulse');
+                    this.classList.add('text-success-emerald');
+                    
+                    showToast('AI Optimizations Added!', 'Rephrased experience statements into high-impact action bullets.');
+
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('text-success-emerald');
+                    }, 2000);
+                }, 1500);
+            });
+        }
+
+
+        // TEMPLATE SELECTOR STATE MANAGEMENT
+        document.querySelectorAll('#screen-template .template-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected states
+                document.querySelectorAll('#screen-template .template-card').forEach(c => {
+                    c.classList.remove('border-2', 'border-[#4F46E5]', 'shadow-lg');
+                    c.classList.add('border', 'border-muted-border');
+                    const badge = c.querySelector('.absolute.top-4.right-4');
+                    if (badge) badge.remove();
+                    const selectedText = c.querySelector('.p-4 span.text-\\[#4F46E5\\]');
+                    if (selectedText) {
+                        const star = document.createElement('span');
+                        star.className = 'material-symbols-outlined text-on-surface-variant';
+                        star.style.cursor = 'pointer';
+                        star.textContent = 'star';
+                        selectedText.replaceWith(star);
+                    }
+                });
+
+                // Set selected card state
+                card.classList.remove('border', 'border-muted-border');
+                card.classList.add('border-2', 'border-[#4F46E5]', 'shadow-lg');
+
+                const imgContainer = card.querySelector('.aspect-\\[3\\/4\\], .aspect-\\[4\\/5\\]');
+                if (imgContainer) {
+                    const badge = document.createElement('div');
+                    badge.className = 'absolute top-4 right-4 z-10 w-10 h-10 bg-[#4F46E5] text-white rounded-full flex items-center justify-center shadow-lg';
+                    badge.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 1;">check_circle</span>';
+                    imgContainer.appendChild(badge);
+                }
+
+                const footer = card.querySelector('.p-4');
+                const starOrSelected = footer.querySelector('span:last-child');
+                const selectedSpan = document.createElement('span');
+                selectedSpan.className = 'text-[#4F46E5] font-label-md text-sm';
+                selectedSpan.textContent = 'Selected';
+                starOrSelected.replaceWith(selectedSpan);
+
+                // Update bottom bar & global variable
+                selectedTemplate = card.querySelector('h3').textContent;
+                document.getElementById('active-template-bar-name').textContent = selectedTemplate;
+                
+                // Show confirmation toast
+                showToast('Template Updated', `Selected template is now: ${selectedTemplate}`);
+                
+                // Dynamically update dashboard strength stats
+                document.getElementById('dashboard-resume-strength-txt').innerText = "90%";
+            });
+        });
+
+
+        // MOCK INTERVIEW ACTIONS
+        function startInterviewSimulation() {
+            showToast('Starting Mock Interview', 'Connecting with AI Interviewer...');
+            const previewBox = document.getElementById('interview-video-container');
+            if (previewBox) {
+                previewBox.innerHTML = `
+                    <div class="text-center w-full flex flex-col justify-between min-h-[300px] p-6 bg-white border border-muted-border rounded-xl shadow-inner">
+                        <div class="flex justify-between items-center w-full">
+                            <span class="bg-red-500 text-white text-xs px-2.5 py-1 rounded-full font-bold animate-pulse flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-white"></span> LIVE RECORDING</span>
+                            <span id="interview-timer" class="text-sm font-mono font-bold text-primary">00:00</span>
+                        </div>
+                        <div class="my-6">
+                            <span class="material-symbols-outlined text-6xl text-primary animate-pulse mb-3">account_circle</span>
+                            <h4 class="text-lg font-semibold text-primary">AI Interviewer: "Could you walk me through the architecture of your E-Commerce Platform?"</h4>
+                            <p class="text-xs text-gray-500 mt-2">Adjust your microphone and speak clearly.</p>
+                        </div>
+                        <div class="flex gap-4 justify-center">
+                            <button onclick="stopInterviewSimulation()" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-bold shadow-md hover:scale-[1.02] active:scale-95 transition-all">End Session</button>
+                        </div>
+                    </div>
+                `;
+                let seconds = 0;
+                window.interviewInterval = setInterval(() => {
+                    const timerEl = document.getElementById('interview-timer');
+                    if (!timerEl) {
+                        clearInterval(window.interviewInterval);
+                        return;
+                    }
+                    seconds++;
+                    const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+                    const secs = String(seconds % 60).padStart(2, '0');
+                    timerEl.innerText = `${mins}:${secs}`;
+                }, 1000);
+            }
+        }
+
+        function stopInterviewSimulation() {
+            clearInterval(window.interviewInterval);
+            showToast('Session Completed!', 'AI analysis and mock feedback reports are building.');
+            const previewBox = document.getElementById('interview-video-container');
+            if (previewBox) {
+                previewBox.innerHTML = `
+                    <div class="text-center">
+                        <span class="material-symbols-outlined text-6xl text-primary block mb-4">videocam</span>
+                        <h3 class="text-xl font-bold text-primary">Camera Ready</h3>
+                        <p class="text-gray-600 mt-2">Ensure good lighting and quiet environment</p>
+                    </div>
+                `;
             }
         }
     </script>
-    <style>
-        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-        .page { display: none; }
-        .page.active { display: block; }
-    </style>
-</head>
-<body class="bg-background">
-
-<!-- Navigation -->
-<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-8 h-20 bg-surface-container-lowest border-b border-muted-border">
-    <a href="#" onclick="showPage('dashboard')" class="font-bold text-primary text-xl">Interno</a>
-    <div class="hidden md:flex gap-8 items-center">
-        <button onclick="showPage('dashboard')" class="text-sm hover:text-primary transition-colors">Dashboard</button>
-        <button onclick="showPage('resume')" class="text-sm hover:text-primary transition-colors">Resume Builder</button>
-        <button onclick="showPage('internships')" class="text-sm hover:text-primary transition-colors">Internships</button>
-        <button onclick="showPage('interview')" class="text-sm hover:text-primary transition-colors">AI Interview</button>
-        <button onclick="showPage('practice')" class="text-sm hover:text-primary transition-colors">Practice</button>
-        <button onclick="showPage('career')" class="text-sm hover:text-primary transition-colors">Career Path</button>
-    </div>
-    <div class="flex gap-4 items-center">
-        <button class="p-2 hover:bg-gray-100 rounded-full"><span class="material-symbols-outlined">search</span></button>
-        <div class="w-10 h-10 rounded-full border border-muted-border bg-surface-container overflow-hidden">
-            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLs052g4m81dX59CRTajaNj9MxD_H87ouwk8AboLUv_pO_kB714BwtpUWZE6Beu4iIU9DB3HxjNzEWBd9kI0JvY-rFAd0Yaav37S5Bk4RjKfi0BWHNu4iy-ZZzfxk-f0xdYMhkNray_M88WE2RqOL7nJzG8qs7h3U_ukxdkflvxBuFFs_eQp4Cm0aHsp2MIFQY-Pfev_wgGbPauqdtBNSkXvbby5cPY3ySoGVYdSIkhJk6IMs4sXbyUU4Q" alt="Profile">
-        </div>
-    </div>
-</nav>
-
-<div class="pt-20"></div>
-
-<!-- ===== DASHBOARD PAGE ===== -->
-<section id="dashboard" class="page active">
-    <main class="max-w-6xl mx-auto px-8 py-12 flex flex-col md:flex-row gap-8">
-        <aside class="w-full md:w-[35%] flex flex-col gap-6">
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm flex flex-col items-center text-center">
-                <div class="relative mb-6">
-                    <div class="w-24 h-24 rounded-full border-4 border-white shadow-md bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUPoFXoQdkiHXLDCaQpie-uPaxBYGU82RJG93rYiBrz8H1dKQrn99lq6fwY42H0-nMfYWy8lE-td23iEuoD31IGdAhD0HCw-9gHqIZ9u7AylkTBqUDt7SKzqVo9IhSxWE3OlDqYSRf4-wvbXxUF5q7MzbdnKCGodyQM-a9xHxQ4nifyau-wZOYYK5zvxc1Nx6e1tl4uynmfsT3XblSXfJI7YJkaOktUK7jAZE54TotlOglJMmS7xHptp9Z7HTcqOxYidHpBJRlZBE');"></div>
-                    <div class="absolute bottom-1 right-1 w-5 h-5 bg-success-emerald border-2 border-white rounded-full"></div>
-                </div>
-                <h2 class="font-bold text-primary text-2xl">Ritwik</h2>
-                <p class="text-on-primary-container">Student Developer</p>
-                <div class="mt-6 w-full grid grid-cols-2 gap-4 border-t border-muted-border pt-6">
-                    <div class="flex flex-col">
-                        <span class="text-xs text-gray-500">Applications</span>
-                        <span class="text-xl font-bold text-primary">12</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-xs text-gray-500">Interviews</span>
-                        <span class="text-xl font-bold text-primary">4</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm">
-                <h3 class="font-bold text-primary mb-6">Resume Strength</h3>
-                <div class="flex flex-col items-center">
-                    <div class="relative w-32 h-32 rounded-full bg-gradient-to-br from-success-emerald/20 to-success-emerald/10 flex items-center justify-center">
-                        <span class="font-bold text-primary text-3xl">85%</span>
-                    </div>
-                    <span class="text-sm text-gray-600 mt-4">Great</span>
-                    <p class="text-sm text-gray-600 text-center mt-4">Your resume is in the top 15% for junior developer roles.</p>
-                    <button onclick="showPage('resume')" class="mt-4 w-full py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90">Optimize Resume</button>
-                </div>
-            </div>
-        </aside>
-
-        <section class="w-full md:w-[65%]">
-            <h1 class="text-3xl font-bold text-primary mb-2">Suggested for Your Profile</h1>
-            <p class="text-gray-600 mb-8">Discover internships matched to your skills</p>
-
-            <div class="flex flex-col gap-6">
-                <!-- Job 1 -->
-                <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:scale-105 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 class="font-bold text-primary text-lg">Frontend Intern (React)</h3>
-                            <p class="text-sm text-gray-600">Flipkart • Bangalore (Remote)</p>
-                        </div>
-                        <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">98% Match</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Join Flipkart's frontend team to build the next generation of our e-commerce platform.</p>
-                    <div class="flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">React</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">TypeScript</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">Tailwind</span>
-                        </div>
-                        <button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90">Quick Apply</button>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:scale-105 transition-all">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 class="font-bold text-primary text-lg">Full Stack Developer Intern</h3>
-                            <p class="text-sm text-gray-600">Razorpay • Hyderabad (Remote)</p>
-                        </div>
-                        <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">92% Match</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Join Razorpay's core team to develop mission-critical fintech infrastructure.</p>
-                    <div class="flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">AWS</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">Python</span>
-                        </div>
-                        <button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90">Quick Apply</button>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:scale-105 transition-all border-l-4 border-l-primary">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <h3 class="font-bold text-primary text-lg">Backend Engineering Intern</h3>
-                            <p class="text-sm text-gray-600">Infosys • Pune (Remote)</p>
-                        </div>
-                        <span class="px-3 py-1 bg-gray-100 text-primary rounded-full text-sm font-bold">88% Match</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">Build scalable backend systems and APIs for Fortune 500 clients.</p>
-                    <div class="flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">Java</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">AWS</span>
-                            <span class="px-2 py-1 bg-gray-100 rounded text-xs">PostgreSQL</span>
-                        </div>
-                        <button class="px-6 py-2 bg-primary text-white rounded-lg font-bold hover:opacity-90">Quick Apply</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 flex justify-center">
-                <button onclick="showPage('internships')" class="px-8 py-3 bg-blue-600 text-white rounded-xl font-bold hover:opacity-90">Explore More Internships →</button>
-            </div>
-        </section>
-    </main>
-</section>
-
-<!-- ===== RESUME PAGE ===== -->
-<section id="resume" class="page">
-    <main class="max-w-6xl mx-auto px-8 py-12">
-        <h1 class="text-3xl font-bold text-primary mb-2">Resume Builder</h1>
-        <p class="text-gray-600 mb-8">Optimize your professional story with AI-driven precision</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Editor -->
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm">
-                <h2 class="text-xl font-bold text-primary mb-6">Edit Your Resume</h2>
-                <div class="space-y-4">
-                    <div>
-                        <label class="text-sm font-bold mb-2 block">First Name</label>
-                        <input type="text" value="Ritwik" class="w-full border border-muted-border rounded-lg px-4 py-2 focus:outline-none focus:ring-primary focus:ring-2">
-                    </div>
-                    <div>
-                        <label class="text-sm font-bold mb-2 block">Last Name</label>
-                        <input type="text" value="Sharma" class="w-full border border-muted-border rounded-lg px-4 py-2 focus:outline-none focus:ring-primary focus:ring-2">
-                    </div>
-                    <div>
-                        <label class="text-sm font-bold mb-2 block">Professional Summary</label>
-                        <textarea class="w-full border border-muted-border rounded-lg px-4 py-2 focus:outline-none focus:ring-primary focus:ring-2" rows="4">Enthusiastic computer science student passionate about building web applications. Self-taught developer with strong fundamentals. Seeking first internship opportunity to gain practical experience.</textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Preview -->
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm">
-                <h2 class="text-xl font-bold text-primary mb-6">Live Preview</h2>
-                <div class="border-b-2 border-primary pb-6 mb-6">
-                    <h3 class="text-2xl font-bold text-primary">Ritwik Sharma</h3>
-                    <p class="text-gray-600">Student Developer | Bangalore, India</p>
-                    <p class="text-sm text-gray-500">ritwik.sharma@email.com | +91 98765 43210</p>
-                </div>
-
-                <div class="space-y-6">
-                    <div>
-                        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">Academic Projects</h4>
-                        <div>
-                            <p class="font-bold text-primary">E-Commerce Platform</p>
-                            <p class="text-sm text-gray-600">React, Node.js, MongoDB | Dec 2023 - Present</p>
-                            <p class="text-sm text-gray-600">Built full-stack e-commerce with product catalog, shopping cart, and payment integration</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">Technical Skills</h4>
-                        <p class="text-sm text-gray-600"><strong>Languages:</strong> JavaScript, Python, HTML, CSS, SQL</p>
-                        <p class="text-sm text-gray-600"><strong>Frontend:</strong> React, Tailwind CSS, Bootstrap</p>
-                        <p class="text-sm text-gray-600"><strong>Backend:</strong> Node.js, Express.js</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">Education</h4>
-                        <p class="font-bold text-primary">B.Tech Computer Science</p>
-                        <p class="text-sm text-gray-600">IIT Delhi | Expected 2025 | CGPA: 7.8/10</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</section>
-
-<!-- ===== INTERNSHIPS PAGE ===== -->
-<section id="internships" class="page">
-    <main class="max-w-6xl mx-auto px-8 py-12">
-        <h1 class="text-3xl font-bold text-primary mb-2">Internship Opportunities</h1>
-        <p class="text-gray-600 mb-8">Discover internships matched to your skills and career goals</p>
-
-        <div class="space-y-4">
-            <!-- Job 1 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">Frontend Engineer Intern</h3>
-                        <p class="text-sm text-gray-600">Flipkart • Bangalore (Remote)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">98% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Build responsive web interfaces using React and modern CSS frameworks for India's largest e-commerce platform.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">React</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">TypeScript</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Tailwind</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-
-            <!-- Job 2 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">Full Stack Developer Intern</h3>
-                        <p class="text-sm text-gray-600">Razorpay • Hyderabad (Hybrid)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">92% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Develop and maintain web applications using Node.js and React. Work on India's leading fintech payment platform.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Node.js</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Python</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">MongoDB</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-
-            <!-- Job 3 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">Backend Engineering Intern</h3>
-                        <p class="text-sm text-gray-600">Infosys • Pune (Remote)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">88% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Build scalable backend systems and APIs. Work with cloud services and databases for Fortune 500 clients.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Java</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">AWS</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">PostgreSQL</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-
-            <!-- Job 4 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">Data Science Intern</h3>
-                        <p class="text-sm text-gray-600">BYJU'S • Mumbai (Remote)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">85% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Analyze large datasets and build machine learning models for India's leading edtech platform.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Python</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">SQL</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Pandas</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-
-            <!-- Job 5 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">Mobile Developer Intern</h3>
-                        <p class="text-sm text-gray-600">Swiggy • Bangalore (On-site)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">91% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Develop iOS and Android applications using React Native and native frameworks for India's leading food delivery platform.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">React Native</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Swift</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Firebase</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-
-            <!-- Job 6 -->
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm hover:border-primary/50">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="font-bold text-primary">DevOps Engineer Intern</h3>
-                        <p class="text-sm text-gray-600">HCL Technologies • Chennai (Remote)</p>
-                    </div>
-                    <span class="px-3 py-1 bg-success-bg text-success-text rounded-full text-sm font-bold">84% Match</span>
-                </div>
-                <p class="text-gray-600 mb-4">Manage cloud infrastructure, CI/CD pipelines, and containerized applications for global IT services leader.</p>
-                <div class="flex justify-between items-center">
-                    <div class="flex gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Docker</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Kubernetes</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded text-xs">Jenkins</span>
-                    </div>
-                    <button class="px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90">Quick Apply</button>
-                </div>
-            </div>
-        </div>
-    </main>
-</section>
-
-<!-- ===== INTERVIEW PAGE ===== -->
-<section id="interview" class="page">
-    <main class="max-w-4xl mx-auto px-8 py-12">
-        <h1 class="text-3xl font-bold text-primary mb-8">AI Mock Interview</h1>
-
-        <div class="bg-gradient-to-br from-primary to-primary/80 text-white rounded-xl p-12 text-center mb-8">
-            <span class="material-symbols-outlined text-6xl mb-4 block">video_call</span>
-            <h2 class="text-2xl font-bold mb-4">Interview Training</h2>
-            <p class="mb-8 text-gray-100">Practice with AI interviewer and get instant feedback</p>
-            <button class="px-8 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-100">Start Practice Interview</button>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm">
-                <span class="material-symbols-outlined text-3xl text-primary mb-3 block">assignment</span>
-                <h3 class="font-bold text-primary mb-2">Technical Questions</h3>
-                <p class="text-sm text-gray-600">Get asked real interview questions from top companies</p>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm">
-                <span class="material-symbols-outlined text-3xl text-primary mb-3 block">mic</span>
-                <h3 class="font-bold text-primary mb-2">Voice Practice</h3>
-                <p class="text-sm text-gray-600">Practice speaking and get feedback on delivery</p>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm">
-                <span class="material-symbols-outlined text-3xl text-primary mb-3 block">analytics</span>
-                <h3 class="font-bold text-primary mb-2">Analytics</h3>
-                <p class="text-sm text-gray-600">Track your improvement over time</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm">
-                <h3 class="font-bold text-primary mb-4">Recent Sessions</h3>
-                <div class="space-y-3">
-                    <div class="p-3 bg-gray-50 rounded">
-                        <p class="font-bold text-sm">Frontend Interview</p>
-                        <p class="text-xs text-gray-600">Today • 8:30 AM</p>
-                    </div>
-                    <div class="p-3 bg-gray-50 rounded">
-                        <p class="font-bold text-sm">System Design</p>
-                        <p class="text-xs text-gray-600">Yesterday • 7:00 PM</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white rounded-xl p-6 border border-muted-border shadow-sm">
-                <h3 class="font-bold text-primary mb-4">Your Score</h3>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-success-emerald mb-2">82/100</div>
-                    <p class="text-sm text-gray-600">Keep practicing to improve</p>
-                </div>
-            </div>
-        </div>
-    </main>
-</section>
-
-<!-- ===== PRACTICE PAGE ===== -->
-<section id="practice" class="page">
-    <main class="max-w-6xl mx-auto px-8 py-12">
-        <h1 class="text-3xl font-bold text-primary mb-8">Skill Practice</h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl p-8 shadow-lg hover:scale-105 transition-all cursor-pointer">
-                <span class="material-symbols-outlined text-4xl mb-4 block">code</span>
-                <h3 class="text-2xl font-bold mb-2">JavaScript Fundamentals</h3>
-                <p class="mb-4">Master core JavaScript concepts</p>
-                <div class="flex items-center gap-2">
-                    <div class="flex-1 bg-white/20 rounded-full h-2">
-                        <div class="bg-white h-2 rounded-full" style="width: 65%"></div>
-                    </div>
-                    <span class="text-sm font-bold">65%</span>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-xl p-8 shadow-lg hover:scale-105 transition-all cursor-pointer">
-                <span class="material-symbols-outlined text-4xl mb-4 block">design_services</span>
-                <h3 class="text-2xl font-bold mb-2">React & Frontend</h3>
-                <p class="mb-4">Build modern web applications</p>
-                <div class="flex items-center gap-2">
-                    <div class="flex-1 bg-white/20 rounded-full h-2">
-                        <div class="bg-white h-2 rounded-full" style="width: 80%"></div>
-                    </div>
-                    <span class="text-sm font-bold">80%</span>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl p-8 shadow-lg hover:scale-105 transition-all cursor-pointer">
-                <span class="material-symbols-outlined text-4xl mb-4 block">storage</span>
-                <h3 class="text-2xl font-bold mb-2">Databases & APIs</h3>
-                <p class="mb-4">Learn backend development</p>
-                <div class="flex items-center gap-2">
-                    <div class="flex-1 bg-white/20 rounded-full h-2">
-                        <div class="bg-white h-2 rounded-full" style="width: 55%"></div>
-                    </div>
-                    <span class="text-sm font-bold">55%</span>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl p-8 shadow-lg hover:scale-105 transition-all cursor-pointer">
-                <span class="material-symbols-outlined text-4xl mb-4 block">build</span>
-                <h3 class="text-2xl font-bold mb-2">System Design</h3>
-                <p class="mb-4">Build scalable systems</p>
-                <div class="flex items-center gap-2">
-                    <div class="flex-1 bg-white/20 rounded-full h-2">
-                        <div class="bg-white h-2 rounded-full" style="width: 40%"></div>
-                    </div>
-                    <span class="text-sm font-bold">40%</span>
-                </div>
-            </div>
-        </div>
-    </main>
-</section>
-
-<!-- ===== CAREER PAGE ===== -->
-<section id="career" class="page">
-    <main class="max-w-6xl mx-auto px-8 py-12">
-        <h1 class="text-3xl font-bold text-primary mb-2">AI Career Path</h1>
-        <p class="text-gray-600 mb-8">Personalized guidance based on your skills and interests</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm">
-                <h2 class="text-xl font-bold text-primary mb-6">Your Career Profile</h2>
-                <div class="space-y-4">
-                    <div>
-                        <p class="text-sm font-bold text-gray-600 mb-2">Current Skills Level</p>
-                        <div class="bg-gray-100 rounded-lg p-3">
-                            <p class="font-bold text-primary">Intermediate Developer</p>
-                            <p class="text-sm text-gray-600">Good foundation, ready for internship</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-600 mb-2">Recommended Path</p>
-                        <div class="bg-blue-50 rounded-lg p-3">
-                            <p class="font-bold text-primary">Full Stack Development</p>
-                            <p class="text-sm text-gray-600">Web development with strong backend skills</p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-600 mb-2">Best Role Match</p>
-                        <div class="bg-green-50 rounded-lg p-3">
-                            <p class="font-bold text-primary">Full Stack Intern</p>
-                            <p class="text-sm text-gray-600">Work on entire application stack</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl p-8 border border-muted-border shadow-sm">
-                <h2 class="text-xl font-bold text-primary mb-6">Next Steps</h2>
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <div>
-                            <p class="font-bold">Complete System Design Basics</p>
-                            <p class="text-sm text-gray-600">Learn how to architect applications</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <div>
-                            <p class="font-bold">Build Portfolio Projects</p>
-                            <p class="text-sm text-gray-600">Create 2-3 full-stack projects</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <div>
-                            <p class="font-bold">Practice Technical Interviews</p>
-                            <p class="text-sm text-gray-600">Mock interviews 2-3x per week</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span class="material-symbols-outlined text-primary">check_circle</span>
-                        <div>
-                            <p class="font-bold">Apply to Internships</p>
-                            <p class="text-sm text-gray-600">Target 20+ applications per week</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-</section>
-
-<!-- Footer -->
-<footer class="border-t border-muted-border mt-16 py-8 bg-white">
-    <div class="max-w-6xl mx-auto px-8 text-center text-gray-600 text-sm">
-        <p>© 2025 Interno. Building the future of internship prep.</p>
-        <p class="mt-2">Made with ❤️ for internship seekers</p>
-    </div>
-</footer>
-
-<script>
-    function showPage(pageId) {
-        // Hide all pages
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-        });
-        // Show selected page
-        document.getElementById(pageId).classList.add('active');
-        // Scroll to top
-        window.scrollTo(0, 0);
-    }
-
-    // Show dashboard by default
-    showPage('dashboard');
-</script>
-
 </body>
 </html>
